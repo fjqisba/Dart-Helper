@@ -1,2 +1,3 @@
 # Dart-Helper
-libapp.so分析助手
+一款用于分析libapp.so的ida插件。
+
