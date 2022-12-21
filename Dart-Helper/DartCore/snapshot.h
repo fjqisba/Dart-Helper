@@ -2,9 +2,9 @@
 #include <cstdint>
 #include <map>
 #include <string>
+#include "globals.h"
 
 static const int32_t kMagicValue = 0xdcdcf5f5;
-
 enum SnapshotKind {
 	kFull,      // Full snapshot of an application.
 	kFullCore,  // Full snapshot of core libraries. Agnostic to null safety.
@@ -14,6 +14,7 @@ enum SnapshotKind {
 	kInvalid
 };
 
+class Deserializer;
 struct SnapshotHeader
 {
 	std::int32_t MagicValue;
@@ -29,7 +30,13 @@ class Snapshot
 {
 public:
 	bool ParseSnapshot();
+private:
+	//解析snapshot头部
+	bool parseHeader(Deserializer& d);
+	//解析核心
+	bool parseRoots(Deserializer& d);
 public:
 	SnapshotHeader header;
+	DartVersion dartVer;
 };
 

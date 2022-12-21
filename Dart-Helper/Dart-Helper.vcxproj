@@ -102,7 +102,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='IDA32Debug|x64'">
     <OutDir>C:\CrackTool\IDA 7.5 SP3\plugins\</OutDir>
-    <TargetName>$(ProjectName)64</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='IDA64Debug|Win32'">
     <ClCompile>
@@ -198,7 +198,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DartCore\app_snapshot.cpp" />
+    <ClCompile Include="DartCore\Cluster\ArraySerializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\CanonicalSetDeserializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\CodeDeserializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\DeserializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\FunctionDeserializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\RODataDeserializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\SerializationCluster.cpp" />
     <ClCompile Include="DartCore\datastream.cpp" />
+    <ClCompile Include="DartCore\globals.cpp" />
     <ClCompile Include="DartCore\snapshot.cpp" />
     <ClCompile Include="DartCore\utils.cpp" />
     <ClCompile Include="DartHelper.cpp" />
@@ -207,8 +215,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DartCore\app_snapshot.h" />
+    <ClInclude Include="DartCore\Cluster\ArraySerializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\CanonicalSetDeserializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\CodeDeserializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\DeserializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\FunctionDeserializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\RODataDeserializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\SerializationCluster.h" />
     <ClInclude Include="DartCore\datastream.h" />
     <ClInclude Include="DartCore\globals.h" />
+    <ClInclude Include="DartCore\object.h" />
     <ClInclude Include="DartCore\snapshot.h" />
     <ClInclude Include="DartCore\utils.h" />
     <ClInclude Include="DartHelper.h" />

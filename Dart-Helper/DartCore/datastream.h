@@ -1,6 +1,6 @@
 #pragma once
-#include <cstdint>
 #include <string>
+#include "globals.h"
 
 static const std::int8_t kDataBitsPerByte = 7;
 static const std::int8_t kByteMask = (1 << kDataBitsPerByte) - 1;
@@ -69,8 +69,10 @@ public:
 	intptr_t Position() const;
 	void SetPosition(intptr_t value);
 
+	//获取当前位置
 	const uint8_t* AddressOfCurrentPosition() const;
 
+	//前进
 	void Advance(intptr_t value);
 
 	//剩余的字节数

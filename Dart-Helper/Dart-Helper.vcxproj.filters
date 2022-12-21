@@ -15,6 +15,9 @@
     <Filter Include="Utils">
       <UniqueIdentifier>{07b52de8-f466-4198-abac-594bddbf0c4d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DartCore\Cluster">
+      <UniqueIdentifier>{09bc129c-380d-4e2c-9b7f-3dce7f3a685d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -38,6 +41,30 @@
     <ClCompile Include="DartCore\datastream.cpp">
       <Filter>DartCore</Filter>
     </ClCompile>
+    <ClCompile Include="DartCore\Cluster\DeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\CodeDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\FunctionDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\RODataDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\globals.cpp">
+      <Filter>DartCore</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\CanonicalSetDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\ArraySerializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\SerializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DartHelper.h">
@@ -60,6 +87,30 @@
     </ClInclude>
     <ClInclude Include="DartCore\datastream.h">
       <Filter>DartCore</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\DeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\CodeDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\FunctionDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\RODataDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\CanonicalSetDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\object.h">
+      <Filter>DartCore</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\ArraySerializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\SerializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
