@@ -39,12 +39,10 @@ bool idaapi plugin_ctx_t::run(size_t)
 	{
 		return true;
 	}
-
 	DartHelper helper;
 	if (!helper.InitDartHelper()) {
 		return false;
 	}
-	
 	return true;
 }
 

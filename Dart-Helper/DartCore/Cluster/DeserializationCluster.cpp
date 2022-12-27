@@ -9,7 +9,7 @@ DeserializationCluster::DeserializationCluster(const char* name, bool is_canonic
 
 void DeserializationCluster::ReadAlloc(Deserializer* d)
 {
-
+	//exception
 }
 
 void DeserializationCluster::ReadAllocFixedSize(Deserializer* d, intptr_t instance_size)

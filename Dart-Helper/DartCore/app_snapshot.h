@@ -20,12 +20,15 @@ public:
 	bool InitDeserializer(std::vector<unsigned char>& snapshotData);
 	intptr_t ReadUnsigned() { return stream_.ReadUnsigned(); }
 
+	void AddBaseObject(void* base_object);
+
 	uint32_t ReadUInt32();
 	uint64_t ReadUInt64();
 	//∂¡»°∞Ê±æ∫≈
 	std::string ReadVersion();
 	std::string ReadStr();
-	DeserializationCluster* ReadCluster();
+	intptr_t ReadCid();
+	DeserializationCluster* ReadCluster_2_1_2(Deserializer* d);
 
 	intptr_t next_index() const;
 	void set_code_start_index(intptr_t value);
@@ -33,8 +36,9 @@ public:
 	void AssignRef(void* object);
 private:
 	ReadStream stream_;
-	intptr_t next_ref_index_;
+	intptr_t next_ref_index_ = 0;
 	intptr_t code_start_index_ = 0;
 	intptr_t code_stop_index_ = 0;
 	intptr_t instructions_index_ = 0;
+	std::vector<void*> refs_;
 };

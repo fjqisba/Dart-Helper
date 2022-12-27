@@ -84,7 +84,7 @@ public:
 	}
 private:
 	uint16_t Read16() { return Read16(kEndByteMarker); }
-	uint16_t Read32() { return Read32(kEndByteMarker); }
+	uint32_t Read32() { return Read32(kEndByteMarker); }
 	uint64_t Read64() { return Read64(kEndByteMarker); }
 
 	__forceinline std::uint8_t ReadByte() {

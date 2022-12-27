@@ -12,13 +12,11 @@ DartHelper::~DartHelper()
 
 }
 
-
 bool DartHelper::InitDartHelper()
 {
 	Snapshot shotData;
 	if (!shotData.ParseSnapshot()) {
 		return false;
 	}
-
 	return true;
 }

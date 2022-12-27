@@ -2,7 +2,14 @@
 #include "datastream.h"
 #include "utils.h"
 #include "globals.h"
+#include "class_id.h"
 #include "./Cluster/FunctionDeserializationCluster.h"
+#include "./Cluster/InstanceDeserializationCluster.h"
+#include "./Cluster/TypedDataViewDeserializationCluster.h"
+#include "./Cluster/ExternalTypedDataDeserializationCluster.h"
+#include "./Cluster/StringDeserializationCluster.h"
+#include "./Cluster/MintDeserializationCluster.h"
+#include "./Cluster/OneByteStringDeserializationCluster.h"
 
 Deserializer::Deserializer()
 {
@@ -11,7 +18,11 @@ Deserializer::Deserializer()
 
 Deserializer::~Deserializer()
 {
-
+	for (unsigned int n = 0; n < refs_.size(); ++n) {
+		if (refs_[n]) {
+			delete refs_[n];
+		}
+	}
 }
 
 uint32_t Deserializer::ReadUInt32()
@@ -41,25 +52,33 @@ void Deserializer::set_code_stop_index(intptr_t value)
 
 void Deserializer::AssignRef(void* object)
 {
-
+	refs_.push_back(object);
+	next_ref_index_++;
 }
 
-DeserializationCluster* Deserializer::ReadCluster()
+DeserializationCluster* Deserializer::ReadCluster_2_1_2(Deserializer* d)
 {
-	const uint64_t cid_and_canonical = Read<uint64_t>();
-	const intptr_t cid = (cid_and_canonical >> 1) & kMaxUint32;
-	const bool is_canonical = (cid_and_canonical & 0x1) == 0x1;
+	intptr_t cid = d->ReadCid();
+	if (cid >= kNumPredefinedCids || cid == kInstanceCid) {
+		return new InstanceDeserializationCluster(cid, false);
+	}
+	if (IsTypedDataViewClassId(cid)) {
+		//return new TypedDataViewDeserializationCluster(cid);
+	}
+	if (IsExternalTypedDataClassId(cid)) {
+		//return new ExternalTypedDataDeserializationCluster(cid);
+	}
+	//if (IsTypedDataClassId(cid)) {
+		//return new (Z) TypedDataDeserializationCluster(cid);
+	//}
 
 	switch (cid) {
-	case 0:
-		return nullptr;
-	case 7:
-		return new FunctionDeserializationCluster();
-	case 17:
-		break;
-	case 92:
+	case 14:
 
-		break;
+	case 50:
+		return new MintDeserializationCluster();
+	case 78:
+		return new OneByteStringDeserializationCluster();
 	}
 	return nullptr;
 }
@@ -78,6 +97,11 @@ std::string Deserializer::ReadStr()
 	return retStr;
 }
 
+intptr_t Deserializer::ReadCid()
+{
+	return Read<int32_t>();
+}
+
 std::string Deserializer::ReadVersion()
 {
 	std::string retVer;
@@ -86,6 +110,10 @@ std::string Deserializer::ReadVersion()
 	return retVer;
 }
 
+void Deserializer::AddBaseObject(void* base_object)
+{
+	AssignRef(base_object);
+}
 
 bool Deserializer::InitDeserializer(std::vector<unsigned char>& snapshotData)
 {

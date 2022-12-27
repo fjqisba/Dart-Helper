@@ -198,15 +198,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DartCore\app_snapshot.cpp" />
+    <ClCompile Include="DartCore\class_id.cpp" />
+    <ClCompile Include="DartCore\Cluster\AbstractInstanceDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\ArraySerializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\CanonicalSetDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\CodeDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\DeserializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\ExternalTypedDataDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\FunctionDeserializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\InstanceDeserializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\MintDeserializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\OneByteStringDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\RODataDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\SerializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\StringDeserializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\TypedDataViewDeserializationCluster.cpp" />
+    <ClCompile Include="DartCore\dart_ver.cpp" />
     <ClCompile Include="DartCore\datastream.cpp" />
     <ClCompile Include="DartCore\globals.cpp" />
+    <ClCompile Include="DartCore\Object\Object.cpp" />
     <ClCompile Include="DartCore\snapshot.cpp" />
     <ClCompile Include="DartCore\utils.cpp" />
     <ClCompile Include="DartHelper.cpp" />
@@ -215,16 +225,26 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DartCore\app_snapshot.h" />
+    <ClInclude Include="DartCore\class_id.h" />
+    <ClInclude Include="DartCore\Cluster\AbstractInstanceDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\ArraySerializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\CanonicalSetDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\CodeDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\DeserializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\ExternalTypedDataDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\FunctionDeserializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\InstanceDeserializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\MintDeserializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\OneByteStringDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\RODataDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\SerializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\StringDeserializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\TypedDataViewDeserializationCluster.h" />
+    <ClInclude Include="DartCore\dart_ver.h" />
     <ClInclude Include="DartCore\datastream.h" />
     <ClInclude Include="DartCore\globals.h" />
     <ClInclude Include="DartCore\object.h" />
+    <ClInclude Include="DartCore\Object\Object.h" />
     <ClInclude Include="DartCore\snapshot.h" />
     <ClInclude Include="DartCore\utils.h" />
     <ClInclude Include="DartHelper.h" />

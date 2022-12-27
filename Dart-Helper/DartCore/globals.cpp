@@ -1,36 +1,24 @@
 #include "globals.h"
+#include "class_id.h"
 
-DartVersion gDartVersion;
-
-void SetGlobalDartVersion(DartVersion ver)
+bool IsTypedDataViewClassId(intptr_t index)
 {
-	gDartVersion = ver;
+	if (index == kByteDataViewCid) {
+		return true;
+	}
+	if (IsTypedDataBaseClassId(index) && ((index - kTypedDataInt8ArrayCid) % 4) == kTypedDataCidRemainderView) {
+		return true;
+	}
+	return false;
 }
 
-ClassId getClassId_212(ClassId id)
-{
-	switch (id) {
-	case kIllegalCid:
-		return ClassId(0);
-    case kNativePointer:
-        return ClassId(1);
-    case kFreeListElement:
-        return ClassId(2);
-    case kForwardingCorpse:
-        return ClassId(3);
-    case kObjectCid:
-        return ClassId(4);
-    case kClassCid:
-        return ClassId(5);
-	}
-	return ClassId(0x0);
+bool IsTypedDataBaseClassId(intptr_t index) {
+	// Make sure this is updated when new TypedData types are added.
+	return index >= kTypedDataInt8ArrayCid && index < kByteDataViewCid;
 }
 
-ClassId getClassId(ClassId id)
-{
-	switch (gDartVersion) {
-	case Dart2_1_2:
-		return getClassId_212(id);
-	}
-	return kIllegalCid;
+bool IsExternalTypedDataClassId(intptr_t index) {
+	// Make sure this is updated when new TypedData types are added.
+	return IsTypedDataBaseClassId(index) && ((index - kTypedDataInt8ArrayCid) %
+		4) == kTypedDataCidRemainderExternal;
 }
