@@ -1,9 +1,10 @@
 #pragma once
 #include "DeserializationCluster.h"
 
-class CodeDeserializationCluster :public DeserializationCluster
+class CodeDeserializationCluster :public DeserializationCluster2_1_2
 {
 public:
+	CodeDeserializationCluster();
 	void ReadAlloc(Deserializer* d);
 	void ReadAllocOneCode(Deserializer* d);
 private:

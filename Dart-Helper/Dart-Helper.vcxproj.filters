@@ -98,6 +98,9 @@
     <ClCompile Include="DartCore\Object\Object.cpp">
       <Filter>DartCore\Object</Filter>
     </ClCompile>
+    <ClCompile Include="DartCore\class_table.cpp">
+      <Filter>DartCore</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DartHelper.h">
@@ -174,6 +177,9 @@
     </ClInclude>
     <ClInclude Include="DartCore\Object\Object.h">
       <Filter>DartCore\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\class_table.h">
+      <Filter>DartCore</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -23,17 +23,21 @@ public:
 	void AddBaseObject(void* base_object);
 
 	uint32_t ReadUInt32();
-	uint64_t ReadUInt64();
+
+	uint64_t ReadUnsigned64();
+
 	//∂¡»°∞Ê±æ∫≈
 	std::string ReadVersion();
 	std::string ReadStr();
 	intptr_t ReadCid();
-	DeserializationCluster* ReadCluster_2_1_2(Deserializer* d);
-
+	DeserializationCluster2_1_2* ReadCluster_2_1_2(Deserializer* d);
+	uintptr_t ReadWordWith32BitReads();
 	intptr_t next_index() const;
 	void set_code_start_index(intptr_t value);
 	void set_code_stop_index(intptr_t value);
 	void AssignRef(void* object);
+	void* Ref(intptr_t index);
+	void* ReadRef();
 private:
 	ReadStream stream_;
 	intptr_t next_ref_index_ = 0;

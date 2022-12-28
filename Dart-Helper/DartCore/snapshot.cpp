@@ -4,11 +4,45 @@
 #include "class_id.h"
 #include "./Object/Object.h"
 
+
+void Snapshot::initConfig()
+{
+	if (header.Features.find("x64-sysv") != std::string::npos) {
+		this->arch = "X64";
+	}
+	else if (header.Features.find("arm-eabi") != std::string::npos) {
+		this->arch = "ARM";
+	}
+	else if (header.Features.find("arm64-sysv") != std::string::npos) {
+		this->arch = "ARM64";
+	}
+
+	if (this->arch == "X64") {
+
+	}
+	else if (this->arch == "ARM") {
+		kWordSizeLog2 = 2;
+		kWordSize = 1 < kWordSizeLog2;
+		kObjectAlignment = 8;
+		kObjectAlignmentLog2 = 3;
+	}
+	else if (this->arch == "ARM64") {
+		kWordSizeLog2 = 3;
+		kWordSize = 1 < kWordSizeLog2;
+		kObjectAlignment = 16;
+		kObjectAlignmentLog2 = 4;
+	}
+
+
+	kBitsPerWordLog2 = kWordSizeLog2 + kBitsPerByteLog2;
+	kBitsPerWord = 1 << kBitsPerWordLog2;
+}
+
 bool Snapshot::parseHeader(Deserializer& d)
 {
 	header.MagicValue = d.ReadUInt32();
-	header.Length = d.ReadUInt64();
-	header.Kind = (SnapshotKind)d.ReadUInt64();
+	header.Length = d.ReadUnsigned64();
+	header.Kind = (SnapshotKind)d.ReadUnsigned64();
 	if (header.MagicValue != kMagicValue) {
 		return false;
 	}
@@ -21,17 +55,43 @@ bool Snapshot::parseRoots_2_1_2(Deserializer& d)
 {
 	intptr_t num_base_objects_ = d.ReadUnsigned();
 	intptr_t num_objects_ = d.ReadUnsigned();
-	intptr_t num_clusters_ = d.ReadUnsigned();
-	const intptr_t instructions_table_len = d.ReadUnsigned();
-	const uint32_t instruction_table_data_offset = d.ReadUnsigned();
+	intptr_t num_canonical_clusters_ = d.ReadUnsigned();
+	const intptr_t num_clusters_ = d.ReadUnsigned();
+	const uint32_t initial_field_table_len = d.ReadUnsigned();
 
-	for (intptr_t n = 0; n < num_clusters_; n++) {
-		DeserializationCluster* cluster = d.ReadCluster_2_1_2(&d);
-		if (!cluster) {
-			continue;
+	DeserializationCluster2_1_2** canonical_clusters_ = new DeserializationCluster2_1_2 *[num_canonical_clusters_];
+	DeserializationCluster2_1_2** clusters_ = new DeserializationCluster2_1_2 *[num_clusters_];
+
+	for (intptr_t i = 0; i < num_canonical_clusters_; i++) {
+		canonical_clusters_[i] = d.ReadCluster_2_1_2(&d);
+		if (!canonical_clusters_[i]) {
+			return false;
 		}
-		cluster->ReadAlloc(&d);
+		canonical_clusters_[i]->ReadAlloc(&d, true);
 	}
+
+	for (intptr_t i = 0; i < num_clusters_; i++) {
+		clusters_[i] = d.ReadCluster_2_1_2(&d);
+		if (!clusters_[i]) {
+			return false;
+		}
+		clusters_[i]->ReadAlloc(&d, false);
+	}
+
+	//开始填充结构
+	for (intptr_t i = 0; i < num_canonical_clusters_; i++) {
+		canonical_clusters_[i]->ReadFill(&d, true);
+	}
+	for (intptr_t i = 0; i < num_clusters_; i++) {
+		clusters_[i]->ReadFill(&d, false);
+	}
+
+	//for (intptr_t i = 0; i < num_canonical_clusters_; i++) {
+ //     canonical_clusters_[i]->PostLoad(this, refs, /*is_canonical*/ true);
+ //   }
+	//for (intptr_t i = 0; i < num_clusters_; i++) {
+	//	clusters_[i]->PostLoad(this, refs, /*is_canonical*/ false);
+	//}
 	return true;
 }
 
@@ -168,6 +228,7 @@ bool Snapshot::ParseSnapshot()
 	if (!parseHeader(d)) {
 		return false;
 	}
+	initConfig();
 	this->dartVer = parseDartVersion(this->header.VersionHash);
 	DartVer::SetCurrentVersion(this->dartVer);
 	InitClassId(this->dartVer);

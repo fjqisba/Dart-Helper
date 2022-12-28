@@ -63,3 +63,15 @@ void ReadStream::Advance(intptr_t value)
 {
     current_ = current_ + value;
 }
+
+uintptr_t ReadStream::ReadWordWith32BitReads()
+{
+    intptr_t kNumRead32PerWord = kBitsPerWord / kBitsPerInt32;
+
+    uintptr_t value = 0;
+    for (intptr_t j = 0; j < kNumRead32PerWord; j++) {
+        const auto partial_value = Raw<kInt32Size, uint32_t>::Read(this);
+        value |= (static_cast<uintptr_t>(partial_value) << (j * kBitsPerInt32));
+    }
+    return value;
+}

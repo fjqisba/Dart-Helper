@@ -87,6 +87,8 @@ private:
 	uint32_t Read32() { return Read32(kEndByteMarker); }
 	uint64_t Read64() { return Read64(kEndByteMarker); }
 
+	uintptr_t ReadWordWith32BitReads();
+
 	__forceinline std::uint8_t ReadByte() {
 		return *current_++;
 	}

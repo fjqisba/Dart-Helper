@@ -1,7 +1,7 @@
 #pragma once
 #include "DeserializationCluster.h"
 
-class OneByteStringDeserializationCluster:public DeserializationCluster
+class OneByteStringDeserializationCluster:public DeserializationCluster2_1_2
 {
 public:
 	OneByteStringDeserializationCluster();

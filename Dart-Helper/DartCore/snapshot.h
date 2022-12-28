@@ -37,6 +37,8 @@ private:
 private:
 	//解析snapshot头部
 	bool parseHeader(Deserializer& d);
+	//初始化配置
+	void initConfig();
 	//解析核心
 	bool parseRoots(Deserializer& d);
 	bool parseRoots_2_1_2(Deserializer& d);
@@ -46,5 +48,6 @@ private:
 public:
 	SnapshotHeader header;
 	DartVersion dartVer;
+	std::string arch;
 };
 

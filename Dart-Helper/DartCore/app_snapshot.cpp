@@ -10,6 +10,7 @@
 #include "./Cluster/StringDeserializationCluster.h"
 #include "./Cluster/MintDeserializationCluster.h"
 #include "./Cluster/OneByteStringDeserializationCluster.h"
+#include "./Cluster/CodeDeserializationCluster.h"
 
 Deserializer::Deserializer()
 {
@@ -30,9 +31,14 @@ uint32_t Deserializer::ReadUInt32()
 	return stream_.ReadAny<uint32_t>();
 }
 
-uint64_t Deserializer::ReadUInt64()
+uint64_t Deserializer::ReadUnsigned64()
 {
-	return stream_.ReadAny<uint64_t>();
+	return stream_.ReadUnsigned<uint64_t>();
+}
+
+uintptr_t Deserializer::ReadWordWith32BitReads()
+{
+	return stream_.ReadWordWith32BitReads();
 }
 
 intptr_t Deserializer::next_index() const
@@ -56,11 +62,21 @@ void Deserializer::AssignRef(void* object)
 	next_ref_index_++;
 }
 
-DeserializationCluster* Deserializer::ReadCluster_2_1_2(Deserializer* d)
+void* Deserializer::ReadRef()
+{
+	return Ref(ReadUnsigned());
+}
+
+void* Deserializer::Ref(intptr_t index)
+{
+	return refs_.at(index);
+}
+
+DeserializationCluster2_1_2* Deserializer::ReadCluster_2_1_2(Deserializer* d)
 {
 	intptr_t cid = d->ReadCid();
 	if (cid >= kNumPredefinedCids || cid == kInstanceCid) {
-		return new InstanceDeserializationCluster(cid, false);
+		return new InstanceDeserializationCluster(cid);
 	}
 	if (IsTypedDataViewClassId(cid)) {
 		//return new TypedDataViewDeserializationCluster(cid);
@@ -72,14 +88,14 @@ DeserializationCluster* Deserializer::ReadCluster_2_1_2(Deserializer* d)
 		//return new (Z) TypedDataDeserializationCluster(cid);
 	//}
 
-	switch (cid) {
-	case 14:
-
-	case 50:
-		return new MintDeserializationCluster();
-	case 78:
-		return new OneByteStringDeserializationCluster();
-	}
+	//switch (cid) {
+	//case 14:
+	//	return new CodeDeserializationCluster();
+	//case 50:
+	//	return new MintDeserializationCluster();
+	//case 78:
+	//	return new OneByteStringDeserializationCluster();
+	//}
 	return nullptr;
 }
 

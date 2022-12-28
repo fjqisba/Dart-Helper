@@ -199,6 +199,7 @@
   <ItemGroup>
     <ClCompile Include="DartCore\app_snapshot.cpp" />
     <ClCompile Include="DartCore\class_id.cpp" />
+    <ClCompile Include="DartCore\class_table.cpp" />
     <ClCompile Include="DartCore\Cluster\AbstractInstanceDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\ArraySerializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\CanonicalSetDeserializationCluster.cpp" />
@@ -226,6 +227,7 @@
   <ItemGroup>
     <ClInclude Include="DartCore\app_snapshot.h" />
     <ClInclude Include="DartCore\class_id.h" />
+    <ClInclude Include="DartCore\class_table.h" />
     <ClInclude Include="DartCore\Cluster\AbstractInstanceDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\ArraySerializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\CanonicalSetDeserializationCluster.h" />

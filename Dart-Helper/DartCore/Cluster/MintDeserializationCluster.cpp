@@ -1,12 +1,12 @@
 #include "MintDeserializationCluster.h"
 #include "../app_snapshot.h"
 
-MintDeserializationCluster::MintDeserializationCluster() : DeserializationCluster("int")
+MintDeserializationCluster2_1_2::MintDeserializationCluster2_1_2() : DeserializationCluster2_1_2("int")
 {
 
 }
 
-void MintDeserializationCluster::ReadAlloc(Deserializer* d)
+void MintDeserializationCluster2_1_2::ReadAlloc(Deserializer* d)
 {
     start_index_ = d->next_index();
     const intptr_t count = d->ReadUnsigned();

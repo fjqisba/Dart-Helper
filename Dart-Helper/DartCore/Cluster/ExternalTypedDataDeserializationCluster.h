@@ -1,7 +1,7 @@
 #pragma once
 #include "DeserializationCluster.h"
 
-class ExternalTypedDataDeserializationCluster : public DeserializationCluster
+class ExternalTypedDataDeserializationCluster : public DeserializationCluster2_1_2
 {
 public:
 	explicit ExternalTypedDataDeserializationCluster(intptr_t cid);

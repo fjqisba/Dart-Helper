@@ -54,6 +54,7 @@ static char comment[] = "It's a tool used to help Analysis Dart";
 //      PLUGIN DESCRIPTION BLOCK
 //
 //--------------------------------------------------------------------------
+
 plugin_t PLUGIN =
 {
   IDP_INTERFACE_VERSION,

@@ -3,10 +3,6 @@
 #include "../globals.h"
 #include "../class_id.h"
 
-RODataDeserializationCluster::RODataDeserializationCluster(bool is_canonical, bool is_root_unit, intptr_t cid) : CanonicalSetDeserializationCluster(is_canonical, is_root_unit,"ROData"),cid_(cid)
-{
-
-}
 
 void RODataDeserializationCluster::ReadAlloc(Deserializer* d)
 {
@@ -19,6 +15,6 @@ void RODataDeserializationCluster::ReadAlloc(Deserializer* d)
     }
     stop_index_ = d->next_index();
     if (cid_ == kStringCid) {
-        BuildCanonicalSetFromLayout(d);
+       
     }
 }
