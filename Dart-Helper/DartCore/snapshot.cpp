@@ -7,6 +7,7 @@
 
 void Snapshot::InitDartSetup()
 {
+	DartSetup::SetSnapshotKind(this->header.Kind);
 	if (header.Features.find("product") != std::string::npos) {
 		DartSetup::SetIsProduct(true);
 		if (this->header.Kind == kFullAOT) {
@@ -15,6 +16,9 @@ void Snapshot::InitDartSetup()
 	}
 	if (header.Features.find("debug") != std::string::npos) {
 		DartSetup::SetIsDebug(true);
+	}
+	if (header.Features.find("use_bare_instructions") != std::string::npos) {
+		DartSetup::SetUseBareInstructions(true);
 	}
 	if (header.Features.find("x64-sysv") != std::string::npos) {
 		DartSetup::SetArch("X64");
@@ -236,7 +240,7 @@ bool Snapshot::ParseSnapshot()
 	if (!snapshotData.size()) {
 		return false;
 	}
-	Deserializer d;
+	Deserializer d(header.Kind);
 	if (!d.InitDeserializer(snapshotData)) {
 		return false;
 	}

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "../bitfield.h"
 
 class Object
 {
@@ -26,6 +27,51 @@ namespace Dart212
 	class TypedData :public TypedDataBase {
 	public:
 
+	};
+	class Field
+	{
+	public:
+	private:
+		enum {
+			kConstBit = 0,
+			kStaticBit,
+			kFinalBit,
+			kHasNontrivialInitializerBit,
+			kUnboxedBit,
+			kReflectableBit,
+			kInitializerChangedAfterInitializatonBit,
+			kHasPragmaBit,
+			kCovariantBit,
+			kGenericCovariantImplBit,
+			kIsLateBit,
+			kIsExtensionMemberBit,
+			kNeedsLoadGuardBit,
+			kHasInitializerBit,
+		};
+		class ConstBit : public BitField<uint16_t, bool, kConstBit, 1> {};
+		class StaticBit : public BitField<uint16_t, bool, kStaticBit, 1> {};
+		class FinalBit : public BitField<uint16_t, bool, kFinalBit, 1> {};
+		class HasNontrivialInitializerBit
+			: public BitField<uint16_t, bool, kHasNontrivialInitializerBit, 1> {};
+		class UnboxedBit : public BitField<uint16_t, bool, kUnboxedBit, 1> {};
+		class ReflectableBit : public BitField<uint16_t, bool, kReflectableBit, 1> {};
+		class InitializerChangedAfterInitializatonBit
+			: public BitField<uint16_t,
+			bool,
+			kInitializerChangedAfterInitializatonBit,
+			1> {};
+		class HasPragmaBit : public BitField<uint16_t, bool, kHasPragmaBit, 1> {};
+		class CovariantBit : public BitField<uint16_t, bool, kCovariantBit, 1> {};
+		class GenericCovariantImplBit
+			: public BitField<uint16_t, bool, kGenericCovariantImplBit, 1> {};
+		class IsLateBit : public BitField<uint16_t, bool, kIsLateBit, 1> {};
+		class IsExtensionMemberBit
+			: public BitField<uint16_t, bool, kIsExtensionMemberBit, 1> {};
+		class NeedsLoadGuardBit
+			: public BitField<uint16_t, bool, kNeedsLoadGuardBit, 1> {};
+		class HasInitializerBit
+			: public BitField<uint16_t, bool, kHasInitializerBit, 1> {};
+		friend class FieldDeserializationCluster;
 	};
 }
 

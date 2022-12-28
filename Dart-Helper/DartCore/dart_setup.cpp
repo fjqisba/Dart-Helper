@@ -1,4 +1,5 @@
 #include "dart_setup.h"
+#include "snapshot.h"
 
 DartVersion gDartVerison;
 char gArch[16] = { 0 };
@@ -6,7 +7,8 @@ bool gIsProduct = false;
 bool gIsPrecompiled = false;
 bool gIsDebug = false;
 bool gIncludesCode = false;
-
+SnapshotKind gSnapshotKind;
+bool gUseBareInstructions = false;
 
 void DartSetup::SetCurrentVersion(DartVersion ver)
 {
@@ -67,4 +69,24 @@ void DartSetup::SetIncludesCode(bool bInclude)
 bool DartSetup::IncludesCode()
 {
 	return gIncludesCode;
+}
+
+void DartSetup::SetSnapshotKind(::SnapshotKind kind)
+{
+	gSnapshotKind = kind;
+}
+
+SnapshotKind DartSetup::SnapshotKind()
+{
+	return gSnapshotKind;
+}
+
+void DartSetup::SetUseBareInstructions(bool bUse)
+{
+	gUseBareInstructions = bUse;
+}
+
+bool DartSetup::UseBareInstructions()
+{
+	return gUseBareInstructions;
 }

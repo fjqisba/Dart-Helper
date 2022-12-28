@@ -10,7 +10,7 @@ static constexpr intptr_t kFirstReference = 1;
 class Deserializer
 {
 public:
-	Deserializer();
+	Deserializer(SnapshotKind kind);
 	~Deserializer();
 public:
 	template <typename T>
@@ -42,7 +42,7 @@ public:
 	void AssignRef(void* object);
 	void* Ref(intptr_t index);
 	void* ReadRef();
-
+	SnapshotKind kind();
 	void ReadBytes(uint8_t* addr, intptr_t len) { stream_.ReadBytes(addr, len); }
 	void Advance(intptr_t value) { stream_.Advance(value); }
 private:
@@ -52,4 +52,5 @@ private:
 	intptr_t code_stop_index_ = 0;
 	intptr_t instructions_index_ = 0;
 	std::vector<void*> refs_;
+	SnapshotKind kind_;
 };

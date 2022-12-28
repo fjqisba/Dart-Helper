@@ -13,8 +13,14 @@
 #include "./Cluster/CodeDeserializationCluster.h"
 #include "./Cluster/TypedDataDeserializationCluster.h"
 #include "./Cluster/ClassDeserializationCluster.h"
+#include "./Cluster/TypeArgumentsDeserializationCluster.h"
+#include "./Cluster/PatchClassDeserializationCluster.h"
+#include "./Cluster/ClosureDataDeserializationCluster.h"
+#include "./Cluster/FfiTrampolineDataDeserializationCluster.h"
+#include "./Cluster/FieldDeserializationCluster.h"
+#include "./Cluster/ScriptDeserializationCluster.h"
 
-Deserializer::Deserializer()
+Deserializer::Deserializer(SnapshotKind kind):kind_(kind)
 {
 
 }
@@ -74,6 +80,11 @@ void* Deserializer::ReadRef()
 	return Ref(ReadUnsigned());
 }
 
+SnapshotKind Deserializer::kind()
+{
+	return kind_;
+}
+
 void* Deserializer::Ref(intptr_t index)
 {
 	return refs_.at(index);
@@ -114,13 +125,90 @@ Dart212::DeserializationCluster* Deserializer::ReadCluster_2_1_2(Deserializer* d
 	switch (cid) {
 	case kClassCid:
 		return new ClassDeserializationCluster();
-	case 14:
-		return new CodeDeserializationCluster();
-	case 50:
+	case kTypeArgumentsCid:
+		return new TypeArgumentsDeserializationCluster();
+	case kPatchClassCid:
+		return new PatchClassDeserializationCluster();
+	case kFunctionCid:
+		return new FunctionDeserializationCluster();
+	case kClosureDataCid:
+		return new ClosureDataDeserializationCluster();
+	case kFfiTrampolineDataCid:
+		return new FfiTrampolineDataDeserializationCluster();
+	case kFieldCid:
+		return new FieldDeserializationCluster();
+	case kScriptCid:
+		return new ScriptDeserializationCluster();
+ //   case kLibraryCid:
+ //       return new (Z) LibraryDeserializationCluster();
+ //   case kNamespaceCid:
+ //       return new (Z) NamespaceDeserializationCluster();
+ //   case kKernelProgramInfoCid:
+ //       return new (Z) KernelProgramInfoDeserializationCluster();
+case kCodeCid:
+	return new CodeDeserializationCluster();
+ //   case kObjectPoolCid:
+ //       return new (Z) ObjectPoolDeserializationCluster();
+ //   case kPcDescriptorsCid:
+ //       return new (Z) PcDescriptorsDeserializationCluster();
+ //   case kExceptionHandlersCid:
+ //       return new (Z) ExceptionHandlersDeserializationCluster();
+ //   case kContextCid:
+ //       return new (Z) ContextDeserializationCluster();
+ //   case kContextScopeCid:
+ //       return new (Z) ContextScopeDeserializationCluster();
+ //   case kUnlinkedCallCid:
+ //       return new (Z) UnlinkedCallDeserializationCluster();
+ //   case kICDataCid:
+ //       return new (Z) ICDataDeserializationCluster();
+ //   case kMegamorphicCacheCid:
+ //       return new (Z) MegamorphicCacheDeserializationCluster();
+ //   case kSubtypeTestCacheCid:
+ //       return new (Z) SubtypeTestCacheDeserializationCluster();
+ //   case kLoadingUnitCid:
+ //       return new (Z) LoadingUnitDeserializationCluster();
+ //   case kLanguageErrorCid:
+ //       return new (Z) LanguageErrorDeserializationCluster();
+ //   case kUnhandledExceptionCid:
+ //       return new (Z) UnhandledExceptionDeserializationCluster();
+ //   case kLibraryPrefixCid:
+ //       return new (Z) LibraryPrefixDeserializationCluster();
+ //   case kTypeCid:
+ //       return new (Z) TypeDeserializationCluster();
+ //   case kFunctionTypeCid:
+ //       return new (Z) FunctionTypeDeserializationCluster();
+ //   case kTypeRefCid:
+ //       return new (Z) TypeRefDeserializationCluster();
+ //   case kTypeParameterCid:
+ //       return new (Z) TypeParameterDeserializationCluster();
+ //   case kClosureCid:
+ //       return new (Z) ClosureDeserializationCluster();
+	case kMintCid:
 		return new MintDeserializationCluster();
-	case 75:
-	case 78:
+ //   case kDoubleCid:
+ //       return new (Z) DoubleDeserializationCluster();
+ //   case kGrowableObjectArrayCid:
+ //       return new (Z) GrowableObjectArrayDeserializationCluster();
+ //   case kStackTraceCid:
+ //       return new (Z) StackTraceDeserializationCluster();
+ //   case kRegExpCid:
+ //       return new (Z) RegExpDeserializationCluster();
+ //   case kWeakPropertyCid:
+ //       return new (Z) WeakPropertyDeserializationCluster();
+ //   case kLinkedHashMapCid:
+ //       return new (Z) LinkedHashMapDeserializationCluster();
+ //   case kArrayCid:
+ //       return new (Z) ArrayDeserializationCluster(kArrayCid);
+ //   case kImmutableArrayCid:
+ //       return new (Z) ArrayDeserializationCluster(kImmutableArrayCid);
+	case kOneByteStringCid:
 		return new OneByteStringDeserializationCluster();
+ //   case kTwoByteStringCid:
+ //       return new (Z) TwoByteStringDeserializationCluster();
+ //   case kWeakSerializationReferenceCid:
+ //       return new (Z) WeakSerializationReferenceDeserializationCluster();
+    default:
+        break;
 	}
 	return nullptr;
 }

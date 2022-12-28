@@ -10,7 +10,7 @@ enum DartVersion {
     Dart3_0_0,
 };
 
-
+enum SnapshotKind;
 class DartSetup
 {
 public:
@@ -30,4 +30,10 @@ public:
 
     static void SetIncludesCode(bool bInclude);
     static bool IncludesCode();
+
+    static void SetSnapshotKind(SnapshotKind kind);
+    static SnapshotKind SnapshotKind();
+
+    static void SetUseBareInstructions(bool bUse);
+    static bool UseBareInstructions();
 };

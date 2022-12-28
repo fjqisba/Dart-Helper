@@ -107,6 +107,24 @@
     <ClCompile Include="DartCore\Cluster\ClassDeserializationCluster.cpp">
       <Filter>DartCore\Cluster</Filter>
     </ClCompile>
+    <ClCompile Include="DartCore\Cluster\TypeArgumentsDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\PatchClassDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\ClosureDataDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\FfiTrampolineDataDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\FieldDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\ScriptDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DartHelper.h">
@@ -191,6 +209,27 @@
       <Filter>DartCore\Cluster</Filter>
     </ClInclude>
     <ClInclude Include="DartCore\Cluster\ClassDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\TypeArgumentsDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\PatchClassDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\ClosureDataDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\FfiTrampolineDataDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\FieldDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\bitfield.h">
+      <Filter>DartCore</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\ScriptDeserializationCluster.h">
       <Filter>DartCore\Cluster</Filter>
     </ClInclude>
   </ItemGroup>
