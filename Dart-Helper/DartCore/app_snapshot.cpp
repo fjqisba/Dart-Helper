@@ -12,6 +12,7 @@
 #include "./Cluster/OneByteStringDeserializationCluster.h"
 #include "./Cluster/CodeDeserializationCluster.h"
 #include "./Cluster/TypedDataDeserializationCluster.h"
+#include "./Cluster/ClassDeserializationCluster.h"
 
 Deserializer::Deserializer()
 {
@@ -30,6 +31,11 @@ Deserializer::~Deserializer()
 uint32_t Deserializer::ReadUInt32()
 {
 	return stream_.ReadAny<uint32_t>();
+}
+
+uint64_t Deserializer::ReadUInt64()
+{
+	return stream_.ReadAny<uint64_t>();
 }
 
 uint64_t Deserializer::ReadUnsigned64()
@@ -90,14 +96,32 @@ Dart212::DeserializationCluster* Deserializer::ReadCluster_2_1_2(Deserializer* d
 		return new TypedDataDeserializationCluster(cid);
 	}
 
-	//switch (cid) {
-	//case 14:
-	//	return new CodeDeserializationCluster();
-	//case 50:
-	//	return new MintDeserializationCluster();
-	//case 78:
-	//	return new OneByteStringDeserializationCluster();
-	//}
+	if (DartSetup::IncludesCode()) {
+		switch (cid) {
+		case kPcDescriptorsCid:
+		case kCodeSourceMapCid:
+		case kCompressedStackMapsCid:
+			//return new (Z) RODataDeserializationCluster(cid);
+		case kOneByteStringCid:
+		case kTwoByteStringCid:
+			//if (!is_non_root_unit_) {
+			//	return new (Z) RODataDeserializationCluster(cid);
+			//}
+			break;
+		}
+	}
+	
+	switch (cid) {
+	case kClassCid:
+		return new ClassDeserializationCluster();
+	case 14:
+		return new CodeDeserializationCluster();
+	case 50:
+		return new MintDeserializationCluster();
+	case 75:
+	case 78:
+		return new OneByteStringDeserializationCluster();
+	}
 	return nullptr;
 }
 

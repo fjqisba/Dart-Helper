@@ -1,186 +1,342 @@
 #pragma once
 #include <cstdint>
 
-extern intptr_t kIllegalCid;
-extern intptr_t kNativePointer;
-extern intptr_t kFreeListElement;
-extern intptr_t kForwardingCorpse;
-extern intptr_t kObjectCid;
-extern intptr_t kClassCid;
-extern intptr_t kPatchClassCid;
-extern intptr_t kFunctionCid;
-extern intptr_t kTypeParametersCid;
-extern intptr_t kClosureDataCid;
-extern intptr_t kFfiTrampolineDataCid;
-extern intptr_t kFieldCid;
-extern intptr_t kScriptCid;
-extern intptr_t kLibraryCid;
-extern intptr_t kNamespaceCid;
-extern intptr_t kKernelProgramInfoCid;
-extern intptr_t kWeakSerializationReferenceCid;
-extern intptr_t kCodeCid;
-extern intptr_t kInstructionsCid;
-extern intptr_t kInstructionsSectionCid;
-extern intptr_t kInstructionsTableCid;
-extern intptr_t kObjectPoolCid;
-extern intptr_t kPcDescriptorsCid;
-extern intptr_t kCodeSourceMapCid;
-extern intptr_t kCompressedStackMapsCid;
-extern intptr_t kLocalVarDescriptorsCid;
-extern intptr_t kExceptionHandlersCid;
-extern intptr_t kContextCid;
-extern intptr_t kContextScopeCid;
-extern intptr_t kSentinelCid;
-extern intptr_t kSingleTargetCacheCid;
-extern intptr_t kUnlinkedCallCid;
-extern intptr_t kMonomorphicSmiableCallCid;
-extern intptr_t kCallSiteDataCid;
-extern intptr_t kICDataCid;
-extern intptr_t kMegamorphicCacheCid;
-extern intptr_t kSubtypeTestCacheCid;
-extern intptr_t kLoadingUnitCid;
-extern intptr_t kErrorCid;
-extern intptr_t kApiErrorCid;
-extern intptr_t kLanguageErrorCid;
-extern intptr_t kUnhandledExceptionCid;
-extern intptr_t kUnwindErrorCid;
-extern intptr_t kInstanceCid;
-extern intptr_t kLibraryPrefixCid;
-extern intptr_t kTypeArgumentsCid;
-extern intptr_t kAbstractTypeCid;
-extern intptr_t kTypeCid;
-extern intptr_t kFunctionTypeCid;
-extern intptr_t kRecordTypeCid;
-extern intptr_t kTypeRefCid;
-extern intptr_t kTypeParameterCid;
-extern intptr_t kFinalizerBaseCid;
-extern intptr_t kFinalizerCid;
-extern intptr_t kNativeFinalizerCid;
-extern intptr_t kFinalizerEntryCid;
-extern intptr_t kClosureCid;
-extern intptr_t kNumberCid;
-extern intptr_t kIntegerCid;
-extern intptr_t kSmiCid;
-extern intptr_t kMintCid;
-extern intptr_t kDoubleCid;
-extern intptr_t kBoolCid;
-extern intptr_t kFloat32x4Cid;
-extern intptr_t kInt32x4Cid;
-extern intptr_t kFloat64x2Cid;
-extern intptr_t kRecordCid;
-extern intptr_t kTypedDataBaseCid;
-extern intptr_t kTypedDataCid;
-extern intptr_t kExternalTypedDataCid;
-extern intptr_t kTypedDataViewCid;
-extern intptr_t kPointerCid;
-extern intptr_t kDynamicLibraryCid;
-extern intptr_t kCapabilityCid;
-extern intptr_t kReceivePortCid;
-extern intptr_t kSendPortCid;
-extern intptr_t kStackTraceCid;
-extern intptr_t kSuspendStateCid;
-extern intptr_t kRegExpCid;
-extern intptr_t kWeakPropertyCid;
-extern intptr_t kWeakReferenceCid;
-extern intptr_t kMirrorReferenceCid;
-extern intptr_t kFutureOrCid;
-extern intptr_t kUserTagCid;
-extern intptr_t kTransferableTypedDataCid;
-extern intptr_t kMapCid;
-extern intptr_t kConstMapCid;
-extern intptr_t kSetCid;
-extern intptr_t kConstSetCid;
-extern intptr_t kArrayCid;
-extern intptr_t kImmutableArrayCid;
-extern intptr_t kGrowableObjectArrayCid;
-extern intptr_t kStringCid;
-extern intptr_t kOneByteStringCid;
-extern intptr_t kTwoByteStringCid;
-extern intptr_t kExternalOneByteStringCid;
-extern intptr_t kExternalTwoByteStringCid;
-extern intptr_t kFfiPointerCid;
-extern intptr_t kFfiNativeFunctionCid;
-extern intptr_t kFfiInt8Cid;
-extern intptr_t kFfiInt16Cid;
-extern intptr_t kFfiInt32Cid;
-extern intptr_t kFfiInt64Cid;
-extern intptr_t kFfiUint8Cid;
-extern intptr_t kFfiUint16Cid;
-extern intptr_t kFfiUint32Cid;
-extern intptr_t kFfiUint64Cid;
-extern intptr_t kFfiIntPtrCid;
-extern intptr_t kFfiFloatCid;
-extern intptr_t kFfiDoubleCid;
-extern intptr_t kFfiVoidCid;
-extern intptr_t kFfiHandleCid;
-extern intptr_t kFfiBoolCid;
-extern intptr_t kFfiNativeTypeCid;
-extern intptr_t kFfiDynamicLibraryCid;
-extern intptr_t kFfiStructCid;
-extern intptr_t kTypedDataInt8ArrayCid;
-extern intptr_t kTypedDataInt8ArrayViewCid;
-extern intptr_t kExternalTypedDataInt8ArrayCid;
-extern intptr_t kUnmodifiableTypedDataInt8ArrayViewCid;
-extern intptr_t kTypedDataUint8ArrayCid;
-extern intptr_t kTypedDataUint8ArrayViewCid;
-extern intptr_t kExternalTypedDataUint8ArrayCid;
-extern intptr_t kUnmodifiableTypedDataUint8ArrayViewCid;
-extern intptr_t kTypedDataUint8ClampedArrayCid;
-extern intptr_t kTypedDataUint8ClampedArrayViewCid;
-extern intptr_t kExternalTypedDataUint8ClampedArrayCid;
-extern intptr_t kUnmodifiableTypedDataUint8ClampedArrayViewCid;
-extern intptr_t kTypedDataInt16ArrayCid;
-extern intptr_t kTypedDataInt16ArrayViewCid;
-extern intptr_t kExternalTypedDataInt16ArrayCid;
-extern intptr_t kUnmodifiableTypedDataInt16ArrayViewCid;
-extern intptr_t kTypedDataUint16ArrayCid;
-extern intptr_t kTypedDataUint16ArrayViewCid;
-extern intptr_t kExternalTypedDataUint16ArrayCid;
-extern intptr_t kUnmodifiableTypedDataUint16ArrayViewCid;
-extern intptr_t kTypedDataInt32ArrayCid;
-extern intptr_t kTypedDataInt32ArrayViewCid;
-extern intptr_t kExternalTypedDataInt32ArrayCid;
-extern intptr_t kUnmodifiableTypedDataInt32ArrayViewCid;
-extern intptr_t kTypedDataUint32ArrayCid;
-extern intptr_t kTypedDataUint32ArrayViewCid;
-extern intptr_t kExternalTypedDataUint32ArrayCid;
-extern intptr_t kUnmodifiableTypedDataUint32ArrayViewCid;
-extern intptr_t kTypedDataInt64ArrayCid;
-extern intptr_t kTypedDataInt64ArrayViewCid;
-extern intptr_t kExternalTypedDataInt64ArrayCid;
-extern intptr_t kUnmodifiableTypedDataInt64ArrayViewCid;
-extern intptr_t kTypedDataUint64ArrayCid;
-extern intptr_t kTypedDataUint64ArrayViewCid;
-extern intptr_t kExternalTypedDataUint64ArrayCid;
-extern intptr_t kUnmodifiableTypedDataUint64ArrayViewCid;
-extern intptr_t kTypedDataFloat32ArrayCid;
-extern intptr_t kTypedDataFloat32ArrayViewCid;
-extern intptr_t kExternalTypedDataFloat32ArrayCid;
-extern intptr_t kUnmodifiableTypedDataFloat32ArrayViewCid;
-extern intptr_t kTypedDataFloat64ArrayCid;
-extern intptr_t kTypedDataFloat64ArrayViewCid;
-extern intptr_t kExternalTypedDataFloat64ArrayCid;
-extern intptr_t kUnmodifiableTypedDataFloat64ArrayViewCid;
-extern intptr_t kTypedDataFloat32x4ArrayCid;
-extern intptr_t kTypedDataFloat32x4ArrayViewCid;
-extern intptr_t kExternalTypedDataFloat32x4ArrayCid;
-extern intptr_t kUnmodifiableTypedDataFloat32x4ArrayViewCid;
-extern intptr_t kTypedDataInt32x4ArrayCid;
-extern intptr_t kTypedDataInt32x4ArrayViewCid;
-extern intptr_t kExternalTypedDataInt32x4ArrayCid;
-extern intptr_t kUnmodifiableTypedDataInt32x4ArrayViewCid;
-extern intptr_t kTypedDataFloat64x2ArrayCid;
-extern intptr_t kTypedDataFloat64x2ArrayViewCid;
-extern intptr_t kExternalTypedDataFloat64x2ArrayCid;
-extern intptr_t kUnmodifiableTypedDataFloat64x2ArrayViewCid;
-extern intptr_t kByteDataViewCid;
-extern intptr_t kUnmodifiableByteDataViewCid;
-extern intptr_t kByteBufferCid;
-extern intptr_t kNullCid;
-extern intptr_t kDynamicCid;
-extern intptr_t kVoidCid;
-extern intptr_t kNeverCid;
-extern intptr_t kNumPredefinedCids;
+namespace Dart212
+{
+	enum ClassId
+	{
+		kIllegalCid = 0,
+		kFreeListElement = 1,
+		kForwardingCorpse = 2,
+		kObjectCid = 3,
+		kClassCid = 4,
+		kPatchClassCid = 5,
+		kFunctionCid = 6,
+		kClosureDataCid = 7,
+		kFfiTrampolineDataCid = 8,
+		kFieldCid = 9,
+		kScriptCid = 10,
+		kLibraryCid = 11,
+		kNamespaceCid = 12,
+		kKernelProgramInfoCid = 13,
+		kCodeCid = 14,
+		kInstructionsCid = 15,
+		kInstructionsSectionCid = 16,
+		kObjectPoolCid = 17,
+		kPcDescriptorsCid = 18,
+		kCodeSourceMapCid = 19,
+		kCompressedStackMapsCid = 20,
+		kLocalVarDescriptorsCid = 21,
+		kExceptionHandlersCid = 22,
+		kContextCid = 23,
+		kContextScopeCid = 24,
+		kSingleTargetCacheCid = 25,
+		kUnlinkedCallCid = 26,
+		kMonomorphicSmiableCallCid = 27,
+		kCallSiteDataCid = 28,
+		kICDataCid = 29,
+		kMegamorphicCacheCid = 30,
+		kSubtypeTestCacheCid = 31,
+		kLoadingUnitCid = 32,
+		kErrorCid = 33,
+		kApiErrorCid = 34,
+		kLanguageErrorCid = 35,
+		kUnhandledExceptionCid = 36,
+		kUnwindErrorCid = 37,
+		kInstanceCid = 38,
+		kLibraryPrefixCid = 39,
+		kTypeArgumentsCid = 40,
+		kAbstractTypeCid = 41,
+		kTypeCid = 42,
+		kFunctionTypeCid = 43,
+		kTypeRefCid = 44,
+		kTypeParameterCid = 45,
+		kClosureCid = 46,
+		kNumberCid = 47,
+		kIntegerCid = 48,
+		kSmiCid = 49,
+		kMintCid = 50,
+		kDoubleCid = 51,
+		kBoolCid = 52,
+		kGrowableObjectArrayCid = 53,
+		kFloat32x4Cid = 54,
+		kInt32x4Cid = 55,
+		kFloat64x2Cid = 56,
+		kTypedDataBaseCid = 57,
+		kTypedDataCid = 58,
+		kExternalTypedDataCid = 59,
+		kTypedDataViewCid = 60,
+		kPointerCid = 61,
+		kDynamicLibraryCid = 62,
+		kCapabilityCid = 63,
+		kReceivePortCid = 64,
+		kSendPortCid = 65,
+		kStackTraceCid = 66,
+		kRegExpCid = 67,
+		kWeakPropertyCid = 68,
+		kMirrorReferenceCid = 69,
+		kLinkedHashMapCid = 70,
+		kFutureOrCid = 71,
+		kUserTagCid = 72,
+		kTransferableTypedDataCid = 73,
+		kWeakSerializationReferenceCid = 74,
+		kArrayCid = 75,
+		kImmutableArrayCid = 76,
+		kStringCid = 77,
+		kOneByteStringCid = 78,
+		kTwoByteStringCid = 79,
+		kExternalOneByteStringCid = 80,
+		kExternalTwoByteStringCid = 81,
+		kFfiPointerCid = 82,
+		kFfiNativeFunctionCid = 83,
+		kFfiInt8Cid = 84,
+		kFfiInt16Cid = 85,
+		kFfiInt32Cid = 86,
+		kFfiInt64Cid = 87,
+		kFfiUint8Cid = 88,
+		kFfiUint16Cid = 89,
+		kFfiUint32Cid = 90,
+		kFfiUint64Cid = 91,
+		kFfiIntPtrCid = 92,
+		kFfiFloatCid = 93,
+		kFfiDoubleCid = 94,
+		kFfiVoidCid = 95,
+		kFfiHandleCid = 96,
+		kFfiNativeTypeCid = 97,
+		kFfiDynamicLibraryCid = 98,
+		kFfiStructCid = 99,
+		kTypedDataInt8ArrayCid = 100,
+		kTypedDataInt8ArrayViewCid = 101,
+		kExternalTypedDataInt8ArrayCid = 102,
+		kTypedDataUint8ArrayCid = 103,
+		kTypedDataUint8ArrayViewCid = 104,
+		kExternalTypedDataUint8ArrayCid = 105,
+		kTypedDataUint8ClampedArrayCid = 106,
+		kTypedDataUint8ClampedArrayViewCid = 107,
+		kExternalTypedDataUint8ClampedArrayCid = 108,
+		kTypedDataInt16ArrayCid = 109,
+		kTypedDataInt16ArrayViewCid = 110,
+		kExternalTypedDataInt16ArrayCid = 111,
+		kTypedDataUint16ArrayCid = 112,
+		kTypedDataUint16ArrayViewCid = 113,
+		kExternalTypedDataUint16ArrayCid = 114,
+		kTypedDataInt32ArrayCid = 115,
+		kTypedDataInt32ArrayViewCid = 116,
+		kExternalTypedDataInt32ArrayCid = 117,
+		kTypedDataUint32ArrayCid = 118,
+		kTypedDataUint32ArrayViewCid = 119,
+		kExternalTypedDataUint32ArrayCid = 120,
+		kTypedDataInt64ArrayCid = 121,
+		kTypedDataInt64ArrayViewCid = 122,
+		kExternalTypedDataInt64ArrayCid = 123,
+		kTypedDataUint64ArrayCid = 124,
+		kTypedDataUint64ArrayViewCid = 125,
+		kExternalTypedDataUint64ArrayCid = 126,
+		kTypedDataFloat32ArrayCid = 127,
+		kTypedDataFloat32ArrayViewCid = 128,
+		kExternalTypedDataFloat32ArrayCid = 129,
+		kTypedDataFloat64ArrayCid = 130,
+		kTypedDataFloat64ArrayViewCid = 131,
+		kExternalTypedDataFloat64ArrayCid = 132,
+		kTypedDataFloat32x4ArrayCid = 133,
+		kTypedDataFloat32x4ArrayViewCid = 134,
+		kExternalTypedDataFloat32x4ArrayCid = 135,
+		kTypedDataInt32x4ArrayCid = 136,
+		kTypedDataInt32x4ArrayViewCid = 137,
+		kExternalTypedDataInt32x4ArrayCid = 138,
+		kTypedDataFloat64x2ArrayCid = 139,
+		kTypedDataFloat64x2ArrayViewCid = 140,
+		kExternalTypedDataFloat64x2ArrayCid = 141,
+		kByteDataViewCid = 142,
+		kByteBufferCid = 143,
+		kNullCid = 144,
+		kDynamicCid = 145,
+		kVoidCid = 146,
+		kNeverCid = 147,
+		kNumPredefinedCids = 148,
+	};
+}
 
-enum DartVersion;
-bool InitClassId(DartVersion ver);
+namespace Dart300
+{
+	enum ClassId
+	{
+		kIllegalCid = 0,
+		kNativePointer = 1,
+		kFreeListElement = 2,
+		kForwardingCorpse = 3,
+		kObjectCid = 4,
+		kClassCid = 5,
+		kPatchClassCid = 6,
+		kFunctionCid = 7,
+		kTypeParametersCid = 8,
+		kClosureDataCid = 9,
+		kFfiTrampolineDataCid = 10,
+		kFieldCid = 11,
+		kScriptCid = 12,
+		kLibraryCid = 13,
+		kNamespaceCid = 14,
+		kKernelProgramInfoCid = 15,
+		kWeakSerializationReferenceCid = 16,
+		kCodeCid = 17,
+		kInstructionsCid = 18,
+		kInstructionsSectionCid = 19,
+		kInstructionsTableCid = 20,
+		kObjectPoolCid = 21,
+		kPcDescriptorsCid = 22,
+		kCodeSourceMapCid = 23,
+		kCompressedStackMapsCid = 24,
+		kLocalVarDescriptorsCid = 25,
+		kExceptionHandlersCid = 26,
+		kContextCid = 27,
+		kContextScopeCid = 28,
+		kSentinelCid = 29,
+		kSingleTargetCacheCid = 30,
+		kUnlinkedCallCid = 31,
+		kMonomorphicSmiableCallCid = 32,
+		kCallSiteDataCid = 33,
+		kICDataCid = 34,
+		kMegamorphicCacheCid = 35,
+		kSubtypeTestCacheCid = 36,
+		kLoadingUnitCid = 37,
+		kErrorCid = 38,
+		kApiErrorCid = 39,
+		kLanguageErrorCid = 40,
+		kUnhandledExceptionCid = 41,
+		kUnwindErrorCid = 42,
+		kInstanceCid = 43,
+		kLibraryPrefixCid = 44,
+		kTypeArgumentsCid = 45,
+		kAbstractTypeCid = 46,
+		kTypeCid = 47,
+		kFunctionTypeCid = 48,
+		kRecordTypeCid = 49,
+		kTypeRefCid = 50,
+		kTypeParameterCid = 51,
+		kFinalizerBaseCid = 52,
+		kFinalizerCid = 53,
+		kNativeFinalizerCid = 54,
+		kFinalizerEntryCid = 55,
+		kClosureCid = 56,
+		kNumberCid = 57,
+		kIntegerCid = 58,
+		kSmiCid = 59,
+		kMintCid = 60,
+		kDoubleCid = 61,
+		kBoolCid = 62,
+		kFloat32x4Cid = 63,
+		kInt32x4Cid = 64,
+		kFloat64x2Cid = 65,
+		kRecordCid = 66,
+		kTypedDataBaseCid = 67,
+		kTypedDataCid = 68,
+		kExternalTypedDataCid = 69,
+		kTypedDataViewCid = 70,
+		kPointerCid = 71,
+		kDynamicLibraryCid = 72,
+		kCapabilityCid = 73,
+		kReceivePortCid = 74,
+		kSendPortCid = 75,
+		kStackTraceCid = 76,
+		kSuspendStateCid = 77,
+		kRegExpCid = 78,
+		kWeakPropertyCid = 79,
+		kWeakReferenceCid = 80,
+		kMirrorReferenceCid = 81,
+		kFutureOrCid = 82,
+		kUserTagCid = 83,
+		kTransferableTypedDataCid = 84,
+		kMapCid = 85,
+		kConstMapCid = 86,
+		kSetCid = 87,
+		kConstSetCid = 88,
+		kArrayCid = 89,
+		kImmutableArrayCid = 90,
+		kGrowableObjectArrayCid = 91,
+		kStringCid = 92,
+		kOneByteStringCid = 93,
+		kTwoByteStringCid = 94,
+		kExternalOneByteStringCid = 95,
+		kExternalTwoByteStringCid = 96,
+		kFfiNativeFunctionCid = 97,
+		kFfiInt8Cid = 98,
+		kFfiInt16Cid = 99,
+		kFfiInt32Cid = 100,
+		kFfiInt64Cid = 101,
+		kFfiUint8Cid = 102,
+		kFfiUint16Cid = 103,
+		kFfiUint32Cid = 104,
+		kFfiUint64Cid = 105,
+		kFfiFloatCid = 106,
+		kFfiDoubleCid = 107,
+		kFfiVoidCid = 108,
+		kFfiHandleCid = 109,
+		kFfiBoolCid = 110,
+		kFfiNativeTypeCid = 111,
+		kFfiStructCid = 112,
+		kTypedDataInt8ArrayCid = 113,
+		kTypedDataInt8ArrayViewCid = 114,
+		kExternalTypedDataInt8ArrayCid = 115,
+		kUnmodifiableTypedDataInt8ArrayViewCid = 116,
+		kTypedDataUint8ArrayCid = 117,
+		kTypedDataUint8ArrayViewCid = 118,
+		kExternalTypedDataUint8ArrayCid = 119,
+		kUnmodifiableTypedDataUint8ArrayViewCid = 120,
+		kTypedDataUint8ClampedArrayCid = 121,
+		kTypedDataUint8ClampedArrayViewCid = 122,
+		kExternalTypedDataUint8ClampedArrayCid = 123,
+		kUnmodifiableTypedDataUint8ClampedArrayViewCid = 124,
+		kTypedDataInt16ArrayCid = 125,
+		kTypedDataInt16ArrayViewCid = 126,
+		kExternalTypedDataInt16ArrayCid = 127,
+		kUnmodifiableTypedDataInt16ArrayViewCid = 128,
+		kTypedDataUint16ArrayCid = 129,
+		kTypedDataUint16ArrayViewCid = 130,
+		kExternalTypedDataUint16ArrayCid = 131,
+		kUnmodifiableTypedDataUint16ArrayViewCid = 132,
+		kTypedDataInt32ArrayCid = 133,
+		kTypedDataInt32ArrayViewCid = 134,
+		kExternalTypedDataInt32ArrayCid = 135,
+		kUnmodifiableTypedDataInt32ArrayViewCid = 136,
+		kTypedDataUint32ArrayCid = 137,
+		kTypedDataUint32ArrayViewCid = 138,
+		kExternalTypedDataUint32ArrayCid = 139,
+		kUnmodifiableTypedDataUint32ArrayViewCid = 140,
+		kTypedDataInt64ArrayCid = 141,
+		kTypedDataInt64ArrayViewCid = 142,
+		kExternalTypedDataInt64ArrayCid = 143,
+		kUnmodifiableTypedDataInt64ArrayViewCid = 144,
+		kTypedDataUint64ArrayCid = 145,
+		kTypedDataUint64ArrayViewCid = 146,
+		kExternalTypedDataUint64ArrayCid = 147,
+		kUnmodifiableTypedDataUint64ArrayViewCid = 148,
+		kTypedDataFloat32ArrayCid = 149,
+		kTypedDataFloat32ArrayViewCid = 150,
+		kExternalTypedDataFloat32ArrayCid = 151,
+		kUnmodifiableTypedDataFloat32ArrayViewCid = 152,
+		kTypedDataFloat64ArrayCid = 153,
+		kTypedDataFloat64ArrayViewCid = 154,
+		kExternalTypedDataFloat64ArrayCid = 155,
+		kUnmodifiableTypedDataFloat64ArrayViewCid = 156,
+		kTypedDataFloat32x4ArrayCid = 157,
+		kTypedDataFloat32x4ArrayViewCid = 158,
+		kExternalTypedDataFloat32x4ArrayCid = 159,
+		kUnmodifiableTypedDataFloat32x4ArrayViewCid = 160,
+		kTypedDataInt32x4ArrayCid = 161,
+		kTypedDataInt32x4ArrayViewCid = 162,
+		kExternalTypedDataInt32x4ArrayCid = 163,
+		kUnmodifiableTypedDataInt32x4ArrayViewCid = 164,
+		kTypedDataFloat64x2ArrayCid = 165,
+		kTypedDataFloat64x2ArrayViewCid = 166,
+		kExternalTypedDataFloat64x2ArrayCid = 167,
+		kUnmodifiableTypedDataFloat64x2ArrayViewCid = 168,
+		kByteDataViewCid = 169,
+		kUnmodifiableByteDataViewCid = 170,
+		kByteBufferCid = 171,
+		kNullCid = 172,
+		kDynamicCid = 173,
+		kVoidCid = 174,
+		kNeverCid = 175,
+		kNumPredefinedCids = 176,
+	};
+}

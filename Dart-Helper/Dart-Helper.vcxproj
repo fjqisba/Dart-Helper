@@ -148,7 +148,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>false</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;__NT__;__EA64__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;__NT__;__EA64__;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>Default</ConformanceMode>
       <AdditionalIncludeDirectories>C:\MyLib\idasdk75\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp14</LanguageStandard>
@@ -203,6 +203,7 @@
     <ClCompile Include="DartCore\Cluster\AbstractInstanceDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\ArraySerializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\CanonicalSetDeserializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\ClassDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\CodeDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\DeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\ExternalTypedDataDeserializationCluster.cpp" />
@@ -215,7 +216,7 @@
     <ClCompile Include="DartCore\Cluster\StringDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\TypedDataDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\TypedDataViewDeserializationCluster.cpp" />
-    <ClCompile Include="DartCore\dart_ver.cpp" />
+    <ClCompile Include="DartCore\dart_setup.cpp" />
     <ClCompile Include="DartCore\datastream.cpp" />
     <ClCompile Include="DartCore\globals.cpp" />
     <ClCompile Include="DartCore\Object\Object.cpp" />
@@ -232,6 +233,7 @@
     <ClInclude Include="DartCore\Cluster\AbstractInstanceDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\ArraySerializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\CanonicalSetDeserializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\ClassDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\CodeDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\DeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\ExternalTypedDataDeserializationCluster.h" />
@@ -244,7 +246,7 @@
     <ClInclude Include="DartCore\Cluster\StringDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\TypedDataDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\TypedDataViewDeserializationCluster.h" />
-    <ClInclude Include="DartCore\dart_ver.h" />
+    <ClInclude Include="DartCore\dart_setup.h" />
     <ClInclude Include="DartCore\datastream.h" />
     <ClInclude Include="DartCore\globals.h" />
     <ClInclude Include="DartCore\object.h" />

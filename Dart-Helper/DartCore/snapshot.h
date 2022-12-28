@@ -3,7 +3,7 @@
 #include <map>
 #include <string>
 #include "globals.h"
-#include "dart_ver.h"
+#include "dart_setup.h"
 
 static const int32_t kMagicValue = 0xdcdcf5f5;
 enum SnapshotKind {
@@ -38,7 +38,7 @@ private:
 	//解析snapshot头部
 	bool parseHeader(Deserializer& d);
 	//初始化配置
-	void initConfig();
+	void InitDartSetup();
 	//解析核心
 	bool parseRoots(Deserializer& d);
 	bool parseRoots_2_1_2(Deserializer& d);
@@ -48,6 +48,6 @@ private:
 public:
 	SnapshotHeader header;
 	DartVersion dartVer;
-	std::string arch;
 };
+
 

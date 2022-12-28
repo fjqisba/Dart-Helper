@@ -22,7 +22,11 @@ public:
 
 	void AddBaseObject(void* base_object);
 
+	//暴力读取32,非内置
 	uint32_t ReadUInt32();
+	//暴力读取64,非内置
+	uint64_t ReadUInt64();
+
 
 	uint64_t ReadUnsigned64();
 

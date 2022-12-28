@@ -86,7 +86,7 @@
     <ClCompile Include="DartCore\class_id.cpp">
       <Filter>DartCore</Filter>
     </ClCompile>
-    <ClCompile Include="DartCore\dart_ver.cpp">
+    <ClCompile Include="DartCore\dart_setup.cpp">
       <Filter>DartCore</Filter>
     </ClCompile>
     <ClCompile Include="DartCore\Cluster\MintDeserializationCluster.cpp">
@@ -102,6 +102,9 @@
       <Filter>DartCore</Filter>
     </ClCompile>
     <ClCompile Include="DartCore\Cluster\TypedDataDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\ClassDeserializationCluster.cpp">
       <Filter>DartCore\Cluster</Filter>
     </ClCompile>
   </ItemGroup>
@@ -169,7 +172,7 @@
     <ClInclude Include="DartCore\class_id.h">
       <Filter>DartCore</Filter>
     </ClInclude>
-    <ClInclude Include="DartCore\dart_ver.h">
+    <ClInclude Include="DartCore\dart_setup.h">
       <Filter>DartCore</Filter>
     </ClInclude>
     <ClInclude Include="DartCore\Cluster\MintDeserializationCluster.h">
@@ -185,6 +188,9 @@
       <Filter>DartCore</Filter>
     </ClInclude>
     <ClInclude Include="DartCore\Cluster\TypedDataDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\ClassDeserializationCluster.h">
       <Filter>DartCore\Cluster</Filter>
     </ClInclude>
   </ItemGroup>

@@ -5,28 +5,43 @@
 #include "./Object/Object.h"
 
 
-void Snapshot::initConfig()
+void Snapshot::InitDartSetup()
 {
+	if (header.Features.find("product") != std::string::npos) {
+		DartSetup::SetIsProduct(true);
+		if (this->header.Kind == kFullAOT) {
+			DartSetup::SetIsPrecompiled(true);
+		}
+	}
+	if (header.Features.find("debug") != std::string::npos) {
+		DartSetup::SetIsDebug(true);
+	}
 	if (header.Features.find("x64-sysv") != std::string::npos) {
-		this->arch = "X64";
+		DartSetup::SetArch("X64");
 	}
 	else if (header.Features.find("arm-eabi") != std::string::npos) {
-		this->arch = "ARM";
+		DartSetup::SetArch("ARM");
 	}
 	else if (header.Features.find("arm64-sysv") != std::string::npos) {
-		this->arch = "ARM64";
+		DartSetup::SetArch("ARM64");
+	}
+	
+	if (this->header.Kind == kFullJIT || this->header.Kind == kFullAOT) {
+		DartSetup::SetIncludesCode(true);
 	}
 
-	if (this->arch == "X64") {
+	//初始化常量
+	std::string arch = DartSetup::Arch();
+	if (arch == "X64") {
 
 	}
-	else if (this->arch == "ARM") {
+	else if (arch == "ARM") {
 		kWordSizeLog2 = 2;
 		kWordSize = 1 < kWordSizeLog2;
 		kObjectAlignment = 8;
 		kObjectAlignmentLog2 = 3;
 	}
-	else if (this->arch == "ARM64") {
+	else if (arch == "ARM64") {
 		kWordSizeLog2 = 3;
 		kWordSize = 1 < kWordSizeLog2;
 		kObjectAlignment = 16;
@@ -41,8 +56,8 @@ void Snapshot::initConfig()
 bool Snapshot::parseHeader(Deserializer& d)
 {
 	header.MagicValue = d.ReadUInt32();
-	header.Length = d.ReadUnsigned64();
-	header.Kind = (SnapshotKind)d.ReadUnsigned64();
+	header.Length = d.ReadUInt64();
+	header.Kind = (SnapshotKind)d.ReadUInt64();
 	if (header.MagicValue != kMagicValue) {
 		return false;
 	}
@@ -228,10 +243,8 @@ bool Snapshot::ParseSnapshot()
 	if (!parseHeader(d)) {
 		return false;
 	}
-	initConfig();
 	this->dartVer = parseDartVersion(this->header.VersionHash);
-	DartVer::SetCurrentVersion(this->dartVer);
-	InitClassId(this->dartVer);
+	InitDartSetup();
 	AddBaseObjects(&d);
 	if (!parseRoots(d)) {
 		return false;
