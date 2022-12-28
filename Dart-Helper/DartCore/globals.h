@@ -53,13 +53,14 @@ __forceinline D bit_cast(const S& source) {
     return destination;
 }
 
-bool IsTypedDataBaseClassId(intptr_t index);
+namespace Dart212
+{
+    bool IsTypedDataClassId(intptr_t index);
+    bool IsTypedDataBaseClassId(intptr_t index);
+    bool IsTypedDataViewClassId(intptr_t index);
+    bool IsExternalTypedDataClassId(intptr_t index);
+}
 
-bool IsTypedDataViewClassId(intptr_t index);
-
-bool IsTypedDataBaseClassId(intptr_t index);
-
-bool IsExternalTypedDataClassId(intptr_t index);
 
 
 intptr_t RoundedAllocationSize(intptr_t size);

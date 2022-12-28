@@ -213,6 +213,7 @@
     <ClCompile Include="DartCore\Cluster\RODataDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\SerializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\StringDeserializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\TypedDataDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\TypedDataViewDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\dart_ver.cpp" />
     <ClCompile Include="DartCore\datastream.cpp" />
@@ -241,6 +242,7 @@
     <ClInclude Include="DartCore\Cluster\RODataDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\SerializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\StringDeserializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\TypedDataDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\TypedDataViewDeserializationCluster.h" />
     <ClInclude Include="DartCore\dart_ver.h" />
     <ClInclude Include="DartCore\datastream.h" />

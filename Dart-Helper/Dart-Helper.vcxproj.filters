@@ -101,6 +101,9 @@
     <ClCompile Include="DartCore\class_table.cpp">
       <Filter>DartCore</Filter>
     </ClCompile>
+    <ClCompile Include="DartCore\Cluster\TypedDataDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DartHelper.h">
@@ -180,6 +183,9 @@
     </ClInclude>
     <ClInclude Include="DartCore\class_table.h">
       <Filter>DartCore</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\TypedDataDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

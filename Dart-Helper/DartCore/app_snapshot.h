@@ -30,7 +30,7 @@ public:
 	std::string ReadVersion();
 	std::string ReadStr();
 	intptr_t ReadCid();
-	DeserializationCluster2_1_2* ReadCluster_2_1_2(Deserializer* d);
+	Dart212::DeserializationCluster* ReadCluster_2_1_2(Deserializer* d);
 	uintptr_t ReadWordWith32BitReads();
 	intptr_t next_index() const;
 	void set_code_start_index(intptr_t value);
@@ -38,6 +38,9 @@ public:
 	void AssignRef(void* object);
 	void* Ref(intptr_t index);
 	void* ReadRef();
+
+	void ReadBytes(uint8_t* addr, intptr_t len) { stream_.ReadBytes(addr, len); }
+	void Advance(intptr_t value) { stream_.Advance(value); }
 private:
 	ReadStream stream_;
 	intptr_t next_ref_index_ = 0;

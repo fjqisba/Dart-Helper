@@ -11,6 +11,7 @@
 #include "./Cluster/MintDeserializationCluster.h"
 #include "./Cluster/OneByteStringDeserializationCluster.h"
 #include "./Cluster/CodeDeserializationCluster.h"
+#include "./Cluster/TypedDataDeserializationCluster.h"
 
 Deserializer::Deserializer()
 {
@@ -72,21 +73,22 @@ void* Deserializer::Ref(intptr_t index)
 	return refs_.at(index);
 }
 
-DeserializationCluster2_1_2* Deserializer::ReadCluster_2_1_2(Deserializer* d)
+Dart212::DeserializationCluster* Deserializer::ReadCluster_2_1_2(Deserializer* d)
 {
+	using namespace Dart212;
 	intptr_t cid = d->ReadCid();
 	if (cid >= kNumPredefinedCids || cid == kInstanceCid) {
 		return new InstanceDeserializationCluster(cid);
-	}
+	}	
 	if (IsTypedDataViewClassId(cid)) {
-		//return new TypedDataViewDeserializationCluster(cid);
+		return new TypedDataViewDeserializationCluster(cid);
 	}
 	if (IsExternalTypedDataClassId(cid)) {
-		//return new ExternalTypedDataDeserializationCluster(cid);
+		return new ExternalTypedDataDeserializationCluster(cid);
 	}
-	//if (IsTypedDataClassId(cid)) {
-		//return new (Z) TypedDataDeserializationCluster(cid);
-	//}
+	if (IsTypedDataClassId(cid)) {
+		return new TypedDataDeserializationCluster(cid);
+	}
 
 	//switch (cid) {
 	//case 14:

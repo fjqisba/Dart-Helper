@@ -59,8 +59,8 @@ bool Snapshot::parseRoots_2_1_2(Deserializer& d)
 	const intptr_t num_clusters_ = d.ReadUnsigned();
 	const uint32_t initial_field_table_len = d.ReadUnsigned();
 
-	DeserializationCluster2_1_2** canonical_clusters_ = new DeserializationCluster2_1_2 *[num_canonical_clusters_];
-	DeserializationCluster2_1_2** clusters_ = new DeserializationCluster2_1_2 *[num_clusters_];
+	Dart212::DeserializationCluster** canonical_clusters_ = new Dart212::DeserializationCluster *[num_canonical_clusters_];
+	Dart212::DeserializationCluster** clusters_ = new Dart212::DeserializationCluster *[num_clusters_];
 
 	for (intptr_t i = 0; i < num_canonical_clusters_; i++) {
 		canonical_clusters_[i] = d.ReadCluster_2_1_2(&d);
