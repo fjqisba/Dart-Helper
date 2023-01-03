@@ -125,6 +125,90 @@
     <ClCompile Include="DartCore\Cluster\ScriptDeserializationCluster.cpp">
       <Filter>DartCore\Cluster</Filter>
     </ClCompile>
+    <ClCompile Include="DartCore\Cluster\LibraryDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\NamespaceDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\KernelProgramInfoDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\ObjectPoolDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\PcDescriptorsDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\ExceptionHandlersDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\ContextDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\ContextScopeDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\UnlinkedCallDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\ICDataDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\MegamorphicCacheDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\SubtypeTestCacheDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\LoadingUnitDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\LanguageErrorDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\UnhandledExceptionDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\LibraryPrefixDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\TypeDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\FunctionTypeDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\TypeRefDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\TypeParameterDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\ClosureDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\DoubleDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\GrowableObjectArrayDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\StackTraceDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\RegExpDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\WeakPropertyDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\LinkedHashMapDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\ArrayDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DartHelper.h">
@@ -230,6 +314,93 @@
       <Filter>DartCore</Filter>
     </ClInclude>
     <ClInclude Include="DartCore\Cluster\ScriptDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\LibraryDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\NamespaceDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\KernelProgramInfoDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\ObjectPoolDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Object\object_pool_builder.h">
+      <Filter>DartCore\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\PcDescriptorsDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\ExceptionHandlersDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\ContextDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\ContextScopeDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\UnlinkedCallDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\ICDataDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\MegamorphicCacheDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\SubtypeTestCacheDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\LoadingUnitDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\LanguageErrorDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\UnhandledExceptionDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\LibraryPrefixDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\TypeDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\FunctionTypeDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\TypeRefDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\TypeParameterDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\ClosureDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\DoubleDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\GrowableObjectArrayDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\StackTraceDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\RegExpDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\WeakPropertyDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\LinkedHashMapDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\ArrayDeserializationCluster.h">
       <Filter>DartCore\Cluster</Filter>
     </ClInclude>
   </ItemGroup>

@@ -45,6 +45,55 @@ extern int kObjectAlignmentLog2;
 extern int kBitsPerWordLog2;
 extern int kBitsPerWord;
 
+struct simd128_value_t {
+    union {
+        int32_t int_storage[4];
+        int64_t int64_storage[2];
+        float float_storage[4];
+        double double_storage[2];
+    };
+    simd128_value_t& readFrom(const float* v) {
+        float_storage[0] = v[0];
+        float_storage[1] = v[1];
+        float_storage[2] = v[2];
+        float_storage[3] = v[3];
+        return *this;
+    }
+    simd128_value_t& readFrom(const int32_t* v) {
+        int_storage[0] = v[0];
+        int_storage[1] = v[1];
+        int_storage[2] = v[2];
+        int_storage[3] = v[3];
+        return *this;
+    }
+    simd128_value_t& readFrom(const double* v) {
+        double_storage[0] = v[0];
+        double_storage[1] = v[1];
+        return *this;
+    }
+    simd128_value_t& readFrom(const simd128_value_t* v) {
+        *this = *v;
+        return *this;
+    }
+    void writeTo(float* v) {
+        v[0] = float_storage[0];
+        v[1] = float_storage[1];
+        v[2] = float_storage[2];
+        v[3] = float_storage[3];
+    }
+    void writeTo(int32_t* v) {
+        v[0] = int_storage[0];
+        v[1] = int_storage[1];
+        v[2] = int_storage[2];
+        v[3] = int_storage[3];
+    }
+    void writeTo(double* v) {
+        v[0] = double_storage[0];
+        v[1] = double_storage[1];
+    }
+    void writeTo(simd128_value_t* v) { *v = *this; }
+};
+
 template <class D, class S>
 __forceinline D bit_cast(const S& source) {
     D destination;

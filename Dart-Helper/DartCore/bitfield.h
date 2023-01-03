@@ -45,7 +45,6 @@ namespace Dart212
 
         // Returns an S with the bit field value encoded.
         static constexpr S encode(T value) {
-            ASSERT(is_valid(value));
             return encode_unchecked(value);
         }
 

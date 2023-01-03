@@ -156,69 +156,69 @@ DartVersion parseDartVersion(std::string& snapshot_hash)
 
 void Snapshot::AddBaseObjects_2_1_2(Deserializer* d)
 {
-	d->AddBaseObject(new Object("", "", true));
-	d->AddBaseObject(new Object("Null", "null", true));
-	d->AddBaseObject(new Object("Null", "sentinel", true));
-	d->AddBaseObject(new Object("Null", "transition_sentinel", true));
-	d->AddBaseObject(new Object("Array", "<empty_array>", true));
-	d->AddBaseObject(new Object("Array", "<zero_array>", true));
-	d->AddBaseObject(new Object("Type", "<dynamic type>", true));
-	d->AddBaseObject(new Object("Type", "<void type>", true));
-	d->AddBaseObject(new Object("TypeArguments", "[]", true));
-	d->AddBaseObject(new Object("bool", "true", true));
-	d->AddBaseObject(new Object("bool", "false", true));
-	d->AddBaseObject(new Object("Array", "<extractor parameter types>", true));
-	d->AddBaseObject(new Object("Array", "<extractor parameter names>", true));
-	d->AddBaseObject(new Object("ContextScope", "<empty>", true));
-	d->AddBaseObject(new Object("ObjectPool", "<empty>", true));
-	d->AddBaseObject(new Object("CompressedStackMaps", "<empty>", true));
-	d->AddBaseObject(new Object("PcDescriptors", "<empty>", true));
-	d->AddBaseObject(new Object("LocalVarDescriptors", "<empty>", true));
-	d->AddBaseObject(new Object("ExceptionHandlers", "<empty>", true));
+	d->AddBaseObject(new Dart212::Object("", "", true));
+	d->AddBaseObject(new Dart212::Object("Null", "null", true));
+	d->AddBaseObject(new Dart212::Object("Null", "sentinel", true));
+	d->AddBaseObject(new Dart212::Object("Null", "transition_sentinel", true));
+	d->AddBaseObject(new Dart212::Object("Array", "<empty_array>", true));
+	d->AddBaseObject(new Dart212::Object("Array", "<zero_array>", true));
+	d->AddBaseObject(new Dart212::Object("Type", "<dynamic type>", true));
+	d->AddBaseObject(new Dart212::Object("Type", "<void type>", true));
+	d->AddBaseObject(new Dart212::Object("TypeArguments", "[]", true));
+	d->AddBaseObject(new Dart212::Object("bool", "true", true));
+	d->AddBaseObject(new Dart212::Object("bool", "false", true));
+	d->AddBaseObject(new Dart212::Object("Array", "<extractor parameter types>", true));
+	d->AddBaseObject(new Dart212::Object("Array", "<extractor parameter names>", true));
+	d->AddBaseObject(new Dart212::Object("ContextScope", "<empty>", true));
+	d->AddBaseObject(new Dart212::Object("ObjectPool", "<empty>", true));
+	d->AddBaseObject(new Dart212::Object("CompressedStackMaps", "<empty>", true));
+	d->AddBaseObject(new Dart212::Object("PcDescriptors", "<empty>", true));
+	d->AddBaseObject(new Dart212::Object("LocalVarDescriptors", "<empty>", true));
+	d->AddBaseObject(new Dart212::Object("ExceptionHandlers", "<empty>", true));
 	for (int i = 0; i < kCachedDescriptorCount; i++) {
-		d->AddBaseObject(new Object("ArgumentsDescriptor", "<cached arguments descriptor>", true));
+		d->AddBaseObject(new Dart212::Object("ArgumentsDescriptor", "<cached arguments descriptor>", true));
 	}
 	for (int i = 0; i < kCachedICDataArrayCount; i++) {
-		d->AddBaseObject(new Object("Array", "<empty icdata entries>", true));
+		d->AddBaseObject(new Dart212::Object("Array", "<empty icdata entries>", true));
 	}
-	d->AddBaseObject(new Object("Array", "<empty subtype entries>", true));
+	d->AddBaseObject(new Dart212::Object("Array", "<empty subtype entries>", true));
 
 	//Ìí¼ÓÀàÃ¶¾Ù
-	d->AddBaseObject(new Object("Class", "Class", true));
-	d->AddBaseObject(new Object("PatchClass", "Class", true));
-	d->AddBaseObject(new Object("Function", "Class", true));
-	d->AddBaseObject(new Object("ClosureData", "Class", true));
-	d->AddBaseObject(new Object("FfiTrampolineData", "Class", true));
-	d->AddBaseObject(new Object("Field", "Class", true));
-	d->AddBaseObject(new Object("Script", "Class", true));
-	d->AddBaseObject(new Object("Library", "Class", true));
-	d->AddBaseObject(new Object("Namespace", "Class", true));
-	d->AddBaseObject(new Object("KernelProgramInfo", "Class", true));
-	d->AddBaseObject(new Object("Code", "Class", true));
-	d->AddBaseObject(new Object("Instructions", "Class", true));
-	d->AddBaseObject(new Object("InstructionsSection", "Class", true));
-	d->AddBaseObject(new Object("ObjectPool", "Class", true));
-	d->AddBaseObject(new Object("PcDescriptors", "Class", true));
-	d->AddBaseObject(new Object("CodeSourceMap", "Class", true));
-	d->AddBaseObject(new Object("CompressedStackMaps", "Class", true));
-	d->AddBaseObject(new Object("LocalVarDescriptors", "Class", true));
-	d->AddBaseObject(new Object("ExceptionHandlers", "Class", true));
-	d->AddBaseObject(new Object("Context", "Class", true));
-	d->AddBaseObject(new Object("ContextScope", "Class", true));
-	d->AddBaseObject(new Object("SingleTargetCache", "Class", true));
-	d->AddBaseObject(new Object("UnlinkedCall", "Class", true));
-	d->AddBaseObject(new Object("MonomorphicSmiableCall", "Class", true));
-	d->AddBaseObject(new Object("ICData", "Class", true));
-	d->AddBaseObject(new Object("MegamorphicCache", "Class", true));
-	d->AddBaseObject(new Object("SubtypeTestCache", "Class", true));
-	d->AddBaseObject(new Object("LoadingUnit", "Class", true));
-	d->AddBaseObject(new Object("ApiError", "Class", true));
-	d->AddBaseObject(new Object("LanguageError", "Class", true));
-	d->AddBaseObject(new Object("UnhandledException", "Class", true));
-	d->AddBaseObject(new Object("UnwindError", "Class", true));	
-
-	d->AddBaseObject(new Object("Dynamic", "Class", true));
-	d->AddBaseObject(new Object("Void", "Class", true));
+	d->AddBaseObject(new Dart212::Object("Class", "Class", true));
+	d->AddBaseObject(new Dart212::Object("PatchClass", "Class", true));
+	d->AddBaseObject(new Dart212::Object("Function", "Class", true));
+	d->AddBaseObject(new Dart212::Object("ClosureData", "Class", true));
+	d->AddBaseObject(new Dart212::Object("FfiTrampolineData", "Class", true));
+	d->AddBaseObject(new Dart212::Object("Field", "Class", true));
+	d->AddBaseObject(new Dart212::Object("Script", "Class", true));
+	d->AddBaseObject(new Dart212::Object("Library", "Class", true));
+	d->AddBaseObject(new Dart212::Object("Namespace", "Class", true));
+	d->AddBaseObject(new Dart212::Object("KernelProgramInfo", "Class", true));
+	d->AddBaseObject(new Dart212::Object("Code", "Class", true));
+	d->AddBaseObject(new Dart212::Object("Instructions", "Class", true));
+	d->AddBaseObject(new Dart212::Object("InstructionsSection", "Class", true));
+	d->AddBaseObject(new Dart212::Object("ObjectPool", "Class", true));
+	d->AddBaseObject(new Dart212::Object("PcDescriptors", "Class", true));
+	d->AddBaseObject(new Dart212::Object("CodeSourceMap", "Class", true));
+	d->AddBaseObject(new Dart212::Object("CompressedStackMaps", "Class", true));
+	d->AddBaseObject(new Dart212::Object("LocalVarDescriptors", "Class", true));
+	d->AddBaseObject(new Dart212::Object("ExceptionHandlers", "Class", true));
+	d->AddBaseObject(new Dart212::Object("Context", "Class", true));
+	d->AddBaseObject(new Dart212::Object("ContextScope", "Class", true));
+	d->AddBaseObject(new Dart212::Object("SingleTargetCache", "Class", true));
+	d->AddBaseObject(new Dart212::Object("UnlinkedCall", "Class", true));
+	d->AddBaseObject(new Dart212::Object("MonomorphicSmiableCall", "Class", true));
+	d->AddBaseObject(new Dart212::Object("ICData", "Class", true));
+	d->AddBaseObject(new Dart212::Object("MegamorphicCache", "Class", true));
+	d->AddBaseObject(new Dart212::Object("SubtypeTestCache", "Class", true));
+	d->AddBaseObject(new Dart212::Object("LoadingUnit", "Class", true));
+	d->AddBaseObject(new Dart212::Object("ApiError", "Class", true));
+	d->AddBaseObject(new Dart212::Object("LanguageError", "Class", true));
+	d->AddBaseObject(new Dart212::Object("UnhandledException", "Class", true));
+	d->AddBaseObject(new Dart212::Object("UnwindError", "Class", true));	
+			
+	d->AddBaseObject(new Dart212::Object("Dynamic", "Class", true));
+	d->AddBaseObject(new Dart212::Object("Void", "Class", true));
 }
 
 void Snapshot::AddBaseObjects(Deserializer* d)

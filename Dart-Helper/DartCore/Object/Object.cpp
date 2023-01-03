@@ -2,13 +2,15 @@
 #include "../class_id.h"
 #include "../globals.h"
 
-Object::Object(const char* type, const char* name, bool isBase):type(type),name(name),isBase(isBase)
-{
-	
-}
+
 
 namespace Dart212
 {
+    Object::Object(const char* type, const char* name, bool isBase) :type(type), name(name), isBase(isBase)
+    {
+
+    }
+
     const intptr_t
         element_size_table[14] = {
             1,   // kTypedDataInt8ArrayCid.

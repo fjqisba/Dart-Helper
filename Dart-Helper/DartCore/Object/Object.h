@@ -1,21 +1,20 @@
 #pragma once
 #include <string>
-#include "../bitfield.h"
-
-class Object
-{
-public:
-	Object(const char* type,const char* name,bool isBase = false);
-private:
-	std::string type;
-	std::string name;
-	//是否为基础对象
-	bool isBase;
-};
-
+#include "object_pool_builder.h"
 
 namespace Dart212
 {
+	class Object
+	{
+	public:
+		Object(const char* type, const char* name, bool isBase = false);
+	private:
+		std::string type;
+		std::string name;
+		//是否为基础对象
+		bool isBase;
+
+	};
 	class TypedDataBase
 	{
 	public:
@@ -72,6 +71,18 @@ namespace Dart212
 		class HasInitializerBit
 			: public BitField<uint16_t, bool, kHasInitializerBit, 1> {};
 		friend class FieldDeserializationCluster;
+	};
+
+
+	class ObjectPool:public Object
+	{
+	public:
+		using EntryType = compiler::ObjectPoolBuilderEntry::EntryType;
+		using Patchability = compiler::ObjectPoolBuilderEntry::Patchability;
+		using TypeBits = compiler::ObjectPoolBuilderEntry::TypeBits;
+		using PatchableBit = compiler::ObjectPoolBuilderEntry::PatchableBit;
+	public:
+		intptr_t length_;
 	};
 }
 

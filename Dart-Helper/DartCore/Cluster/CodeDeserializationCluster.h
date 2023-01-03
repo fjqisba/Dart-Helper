@@ -35,8 +35,8 @@ namespace Dart212
 
         void ReadFill(Deserializer* d, intptr_t id, bool deferred) {
           
-//           d->ReadInstructions(code, deferred);
-//
+              // d->ReadInstructions(code, deferred);
+
 //            // There would be a single global pool if this is a full AOT snapshot
 //            // with bare instructions.
 //            if (!(d->kind() == Snapshot::kFullAOT && FLAG_use_bare_instructions)) {
@@ -57,15 +57,7 @@ namespace Dart212
 //                static_cast<ArrayPtr>(d->ReadRef());
 //            code->untag()->code_source_map_ =
 //                static_cast<CodeSourceMapPtr>(d->ReadRef());
-//
-//#if !defined(DART_PRECOMPILED_RUNTIME)
-//            if (d->kind() == Snapshot::kFullJIT) {
-//                code->untag()->deopt_info_array_ = static_cast<ArrayPtr>(d->ReadRef());
-//                code->untag()->static_calls_target_table_ =
-//                    static_cast<ArrayPtr>(d->ReadRef());
-//            }
-//#endif  // !DART_PRECOMPILED_RUNTIME
-//
+
 //#if !defined(PRODUCT)
 //            code->untag()->return_address_metadata_ = d->ReadRef();
 //            code->untag()->var_descriptors_ = LocalVarDescriptors::null();
