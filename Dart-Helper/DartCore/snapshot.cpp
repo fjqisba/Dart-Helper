@@ -52,7 +52,6 @@ void Snapshot::InitDartSetup()
 		kObjectAlignmentLog2 = 4;
 	}
 
-
 	kBitsPerWordLog2 = kWordSizeLog2 + kBitsPerByteLog2;
 	kBitsPerWord = 1 << kBitsPerWordLog2;
 }
@@ -240,13 +239,14 @@ bool Snapshot::ParseSnapshot()
 	if (!snapshotData.size()) {
 		return false;
 	}
-	Deserializer d(header.Kind);
+	Deserializer d;
 	if (!d.InitDeserializer(snapshotData)) {
 		return false;
 	}
 	if (!parseHeader(d)) {
 		return false;
 	}
+	d.kind_ = this->header.Kind;
 	this->dartVer = parseDartVersion(this->header.VersionHash);
 	InitDartSetup();
 	AddBaseObjects(&d);

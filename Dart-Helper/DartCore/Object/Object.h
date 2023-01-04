@@ -27,6 +27,12 @@ namespace Dart212
 	public:
 
 	};
+
+	class Code :public Object
+	{
+	public:
+		Code() :Object("Code", "Object") {};
+	};
 	class Field
 	{
 	public:

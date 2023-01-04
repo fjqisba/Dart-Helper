@@ -241,6 +241,7 @@
     <ClCompile Include="DartCore\Cluster\StackTraceDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\StringDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\SubtypeTestCacheDeserializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\TwoByteStringDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\TypeArgumentsDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\TypedDataDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\TypedDataViewDeserializationCluster.cpp" />
@@ -250,6 +251,7 @@
     <ClCompile Include="DartCore\Cluster\UnhandledExceptionDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\UnlinkedCallDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\Cluster\WeakPropertyDeserializationCluster.cpp" />
+    <ClCompile Include="DartCore\Cluster\WeakSerializationReferenceDeserializationCluster.cpp" />
     <ClCompile Include="DartCore\dart_setup.cpp" />
     <ClCompile Include="DartCore\datastream.cpp" />
     <ClCompile Include="DartCore\globals.cpp" />
@@ -306,6 +308,7 @@
     <ClInclude Include="DartCore\Cluster\StackTraceDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\StringDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\SubtypeTestCacheDeserializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\TwoByteStringDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\TypeArgumentsDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\TypedDataDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\TypedDataViewDeserializationCluster.h" />
@@ -315,6 +318,7 @@
     <ClInclude Include="DartCore\Cluster\UnhandledExceptionDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\UnlinkedCallDeserializationCluster.h" />
     <ClInclude Include="DartCore\Cluster\WeakPropertyDeserializationCluster.h" />
+    <ClInclude Include="DartCore\Cluster\WeakSerializationReferenceDeserializationCluster.h" />
     <ClInclude Include="DartCore\dart_setup.h" />
     <ClInclude Include="DartCore\datastream.h" />
     <ClInclude Include="DartCore\globals.h" />

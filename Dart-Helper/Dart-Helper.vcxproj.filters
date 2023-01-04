@@ -209,6 +209,12 @@
     <ClCompile Include="DartCore\Cluster\ArrayDeserializationCluster.cpp">
       <Filter>DartCore\Cluster</Filter>
     </ClCompile>
+    <ClCompile Include="DartCore\Cluster\TwoByteStringDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
+    <ClCompile Include="DartCore\Cluster\WeakSerializationReferenceDeserializationCluster.cpp">
+      <Filter>DartCore\Cluster</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DartHelper.h">
@@ -401,6 +407,12 @@
       <Filter>DartCore\Cluster</Filter>
     </ClInclude>
     <ClInclude Include="DartCore\Cluster\ArrayDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\TwoByteStringDeserializationCluster.h">
+      <Filter>DartCore\Cluster</Filter>
+    </ClInclude>
+    <ClInclude Include="DartCore\Cluster\WeakSerializationReferenceDeserializationCluster.h">
       <Filter>DartCore\Cluster</Filter>
     </ClInclude>
   </ItemGroup>

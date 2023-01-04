@@ -33,10 +33,10 @@ const char* DartSetup::Arch()
 
 void DartSetup::SetIsProduct(bool isProduct)
 {
-	gIsProduct = gIsProduct;
+	gIsProduct = isProduct;
 }
 
-bool DartSetup::IsProduct(bool isProduct)
+bool DartSetup::IsProduct()
 {
 	return gIsProduct;
 }

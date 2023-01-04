@@ -49,8 +49,9 @@
 #include "./Cluster/ArrayDeserializationCluster.h"
 #include "./Cluster/TwoByteStringDeserializationCluster.h"
 #include "./Cluster/WeakSerializationReferenceDeserializationCluster.h"
+#include "./Cluster/RODataDeserializationCluster.h"
 
-Deserializer::Deserializer(SnapshotKind kind):kind_(kind)
+Deserializer::Deserializer():is_non_root_unit_(false)
 {
 
 }
@@ -72,6 +73,30 @@ uint32_t Deserializer::ReadUInt32()
 uint64_t Deserializer::ReadUInt64()
 {
 	return stream_.ReadAny<uint64_t>();
+}
+
+void Deserializer::ReadInstructions_212(Dart212::Code* code, bool deferred)
+{
+	if (deferred) {
+		if (DartSetup::IsPrecompiled() && DartSetup::UseBareInstructions()) {
+			return;
+		}
+		return;
+	}
+
+	if (DartSetup::IsPrecompiled() && DartSetup::UseBareInstructions()) {
+		previous_text_offset_ += ReadUnsigned();
+		const uint32_t payload_info = ReadUnsigned();
+		const uint32_t unchecked_offset = payload_info >> 1;
+		const bool has_monomorphic_entrypoint = (payload_info & 0x1) == 0x1;
+		return;
+	}
+	Read<uint32_t>();
+	uint32_t unchecked_offset = ReadUnsigned();
+	if (kind() == kFullJIT) {
+		const uint32_t active_offset = Read<uint32_t>();
+		unchecked_offset = ReadUnsigned();
+	}
 }
 
 uint64_t Deserializer::ReadUnsigned64()
@@ -145,9 +170,7 @@ Dart212::DeserializationCluster* Deserializer::ReadCluster_2_1_2(Deserializer* d
 			//return new (Z) RODataDeserializationCluster(cid);
 		case kOneByteStringCid:
 		case kTwoByteStringCid:
-			//if (!is_non_root_unit_) {
-			//	return new (Z) RODataDeserializationCluster(cid);
-			//}
+			return new RODataDeserializationCluster(cid);
 			break;
 		}
 	}

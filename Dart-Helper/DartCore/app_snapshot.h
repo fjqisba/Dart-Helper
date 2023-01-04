@@ -7,10 +7,15 @@
 static constexpr intptr_t kUnreachableReference = 0;
 static constexpr intptr_t kFirstReference = 1;
 
+namespace Dart212
+{
+	class Code;
+}
+
 class Deserializer
 {
 public:
-	Deserializer(SnapshotKind kind);
+	Deserializer();
 	~Deserializer();
 public:
 	template <typename T>
@@ -27,6 +32,7 @@ public:
 	//暴力读取64,非内置
 	uint64_t ReadUInt64();
 
+	void ReadInstructions_212(Dart212::Code* code, bool deferred);
 
 	uint64_t ReadUnsigned64();
 
@@ -45,12 +51,18 @@ public:
 	SnapshotKind kind();
 	void ReadBytes(uint8_t* addr, intptr_t len) { stream_.ReadBytes(addr, len); }
 	void Advance(intptr_t value) { stream_.Advance(value); }
+public:
+	SnapshotKind kind_;
 private:
 	ReadStream stream_;
-	intptr_t next_ref_index_ = 0;
+	intptr_t num_base_objects_;
+	intptr_t num_objects_;
+	intptr_t num_clusters_;
 	intptr_t code_start_index_ = 0;
 	intptr_t code_stop_index_ = 0;
 	intptr_t instructions_index_ = 0;
+	const bool is_non_root_unit_;
 	std::vector<void*> refs_;
-	SnapshotKind kind_;
+	intptr_t next_ref_index_ = 0;
+	intptr_t previous_text_offset_ = 0;
 };

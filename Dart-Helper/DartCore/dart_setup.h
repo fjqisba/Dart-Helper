@@ -20,7 +20,7 @@ public:
     static const char* Arch();
 
     static void SetIsProduct(bool isProduct);
-    static bool IsProduct(bool isProduct);
+    static bool IsProduct();
 
     static void SetIsPrecompiled(bool isPrecom);
     static bool IsPrecompiled();
